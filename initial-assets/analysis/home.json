@@ -1,0 +1,177 @@
+{
+  "screen_id": "home",
+  "screenshot_path": "screens/home.png",
+  "screen_name": "Home (dashboard with budget status, alerts, quick actions, recent activity)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 720
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F6F6FA", "usage": "page background (very light lavender)" },
+      { "hex": "#D9DAE3", "usage": "Monthly Budget card background (muted gray-lavender)" },
+      { "hex": "#FFFFFF", "usage": "transaction cards, top bar" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand logo 'ExpenseTracker', 'See All' link, Add Expense icon" },
+      { "hex": "#111827", "usage": "card titles, big budget figure, section headers, transaction names and amounts, nav active label" },
+      { "hex": "#4B5563", "usage": "'Spent' label, 'Limit: Rp 5.000.000' text, transaction subtitles" },
+      { "hex": "#B91C1C", "usage": "'Overbudget' badge text, alert title and value (dark red)" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "Scan Receipt primary button, See All link, active nav pill, bell icon" }
+    ],
+    "border": [
+      { "hex": "#E5E7EB", "usage": "transaction card borders, top bar divider" },
+      { "hex": "#FECACA", "usage": "alert banner border (light red)" }
+    ],
+    "semantic": [
+      { "hex": "#B91C1C", "usage": "over-budget alert: dark red text on light red banner, warning triangle icon" },
+      { "hex": "#FEE2E2", "usage": "alert banner background, 'Overbudget' badge background, red progress bar context" },
+      { "hex": "#DC2626", "usage": "budget progress bar fill (solid red = over budget), warning triangle icon fill" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, rounded geometric feel — Poppins/Nunito-like)"],
+    "sizes_observed": [
+      { "px": 32, "role": "brand logo (bold, image ~2x; ~16px at 1x)" },
+      { "px": 36, "role": "'Monthly Budget' card title, section headers 'Category Alerts', 'Recent Activity'" },
+      { "px": 28, "role": "'Spent' label, 'Limit: Rp 5.000.000', 'See All' link" },
+      { "px": 58, "role": "big budget figure 'Rp 5.250.000' (extra bold)" },
+      { "px": 24, "role": "'Overbudget' badge text (bold)" },
+      { "px": 30, "role": "alert title 'Shopping' (bold), 'Overbudget' subtitle, alert value 'Over Rp 200.000' (bold)" },
+      { "px": 36, "role": "'Scan Receipt' / 'Add Expense' button labels (bold/semibold)" },
+      { "px": 30, "role": "transaction titles (bold), transaction amounts (bold)" },
+      { "px": 28, "role": "transaction subtitles" },
+      { "px": 26, "role": "bottom-nav labels (bold on active)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo, budget figure, section headers, alert texts, button labels, transaction titles/amounts, active nav label" },
+      { "weight": "400", "role": "'Spent' label, limit text, transaction subtitles, inactive nav labels" }
+    ],
+    "line_height_notes": "normal to slightly tight on big figure"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 16, "usage": "Monthly Budget card, Scan Receipt / Add Expense buttons, alert banner" },
+    { "px": 12, "usage": "transaction cards" },
+    { "px": 999, "usage": "category icon circles, avatar, warning icon circle, bottom-nav active pill" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle drop shadow under cards and buttons", "usage": "card/button elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "top bar avatar (photo) and notification bell",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (round profile photo left; blue bell icon right)"
+    },
+    {
+      "type": "card",
+      "variant": "budget summary (over-budget state)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 32px",
+        "border": "none",
+        "shadow": "very subtle",
+        "icon_present": false
+      },
+      "state_visible": "error (gray-lavender card; red 100% progress bar; 'Limit: Rp 5.000.000' left with light-red 'Overbudget' badge right)"
+    },
+    {
+      "type": "badge",
+      "variant": "status badge (destructive)",
+      "properties": {
+        "radius_px": 8,
+        "padding": "approx 8px 16px",
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "error ('Overbudget' dark red text on light red pill)"
+    },
+    {
+      "type": "card",
+      "variant": "alert banner (category over-budget)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 24px",
+        "border": "1px solid light red",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "error (light red banner: red warning triangle in white circle, 'Shopping' bold + 'Overbudget' subtitle, right-aligned 'Over Rp 200.000' in bold red)"
+    },
+    {
+      "type": "button",
+      "variant": "primary (large action card)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 40px vertical, full width",
+        "border": "none",
+        "shadow": "subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (solid blue 'Scan Receipt' with white camera icon above label, stacked/centered layout)"
+    },
+    {
+      "type": "button",
+      "variant": "secondary (large action card)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 40px vertical, full width",
+        "border": "none",
+        "shadow": "subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (light gray-lavender 'Add Expense' with blue plus-circle icon above label, stacked/centered layout)"
+    },
+    {
+      "type": "card",
+      "variant": "transaction list item",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px 24px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (tinted circular category icon; merchant name bold + category subtitle; right-aligned '-Rp 85.000' / '-Rp 45.000')"
+    },
+    {
+      "type": "other",
+      "variant": "section header with link ('Recent Activity' + 'See All')",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (bold header left, blue 'See All' link right)"
+    },
+    {
+      "type": "other",
+      "variant": "bottom navigation bar",
+      "properties": {
+        "radius_px": null,
+        "padding": "approx 12px vertical",
+        "border": "top divider/shadow",
+        "shadow": "subtle elevation",
+        "icon_present": true
+      },
+      "state_visible": "active ('Home' tab highlighted with blue filled rounded pill and white icon+label; Expenses, Scan, Settings inactive in dark gray)"
+    }
+  ],
+  "content_patterns": "Action-first dashboard: budget status card, alert, then two large quick-action buttons ('Scan Receipt' primary, 'Add Expense' secondary) as stacked icon+label cards. Verbs on buttons ('Scan', 'Add'). Alert copy is direct: 'Overbudget', 'Over Rp 200.000'. 'See All' affordance for full history. Money formatted Indonesian-style with dot separators and 'Rp' prefix; expenses negated ('-Rp 85.000').",
+  "notable_interactions": "Over-budget status propagated at multiple levels: red progress bar + 'Overbudget' badge on summary card, red alert banner per category, implying tappable alert to view category detail. 'See All' implies full activity list. Large action buttons imply primary scan flow and manual entry. Bottom nav shows active 'Home' pill; content continues behind fixed bottom nav (scrollable)."
+}

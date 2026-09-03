@@ -1,0 +1,142 @@
+{
+  "screen_id": "main_expenses_overbudget_state",
+  "screenshot_path": "screens/main_expenses_overbudget_state.png",
+  "screen_name": "Expenses (dashboard overview, over-budget state)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 720
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F6F6FA", "usage": "page background (very light lavender)" },
+      { "hex": "#FFFFFF", "usage": "summary card, breakdown card, transaction cards, top bars" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand logo 'ExpenseTracker', total expense figure 'Rp 4.250.000'" },
+      { "hex": "#111827", "usage": "period title 'Expenses', section headers, budget value, transaction names/amounts, legend percentages" },
+      { "hex": "#4B5563", "usage": "date-range subtitle '15 Aug – 14 Sep', category labels, 'Remaining' label" },
+      { "hex": "#6B7280", "usage": "transaction subcategory text ('Food & Beverage', 'Transport', 'Shopping')" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "budget progress bar fill, Food category dot/legend, notification bell" }
+    ],
+    "border": [
+      { "hex": "#E5E7EB", "usage": "card borders, divider between budget and category list, top bar divider" }
+    ],
+    "semantic": [
+      { "hex": "#16A34A", "usage": "'Remaining Rp 750.000' positive budget value (success/green)" },
+      { "hex": "#DC2626", "usage": "'Over Rp 200.000' over-budget status text and warning icon (error/red), red shopping transaction amount '- Rp 120.000'" },
+      { "hex": "#F59E0B", "usage": "Education category (yellow/amber)" },
+      { "hex": "#6B7280", "usage": "'Other' category (gray)" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["serif (total expense figure, e.g. Georgia/Playfair-like)", "sans-serif (unidentified, Inter/system-ui-like, all other text)"],
+    "sizes_observed": [
+      { "px": 28, "role": "brand logo (bold, image ~2x; ~14px at 1x)" },
+      { "px": 30, "role": "period title 'Expenses' (regular)" },
+      { "px": 24, "role": "date-range subtitle" },
+      { "px": 24, "role": "'TOTAL EXPENSE' label (uppercase, letter-spaced, semibold)" },
+      { "px": 46, "role": "total expense figure (serif, bold)" },
+      { "px": 28, "role": "'Budget'/'Remaining' labels and values" },
+      { "px": 28, "role": "category rows in summary card ('Remaining Rp 300.000', 'Over Rp 200.000')" },
+      { "px": 30, "role": "section headers 'Category Breakdown', 'Recent Transactions'" },
+      { "px": 24, "role": "date group headers '14 SEP', '13 SEP', '12 SEP', '10 SEP' (uppercase, letter-spaced)" },
+      { "px": 32, "role": "transaction titles (bold), transaction amounts (bold)" },
+      { "px": 28, "role": "transaction subtitles" },
+      { "px": 24, "role": "bottom-nav labels" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo, total expense figure, section headers, transaction titles and amounts, active nav label" },
+      { "weight": "600", "role": "'TOTAL EXPENSE' label" },
+      { "weight": "400", "role": "subtitle, labels, transaction subtitles, inactive nav labels" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "summary card, breakdown card, transaction cards, active bottom-nav pill" },
+    { "px": 999, "usage": "avatar circle, category icon circles, budget progress bar, warning icon circle" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle, diffuse drop shadow under cards and transaction rows", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "top bar avatar (initials) and notification bell",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (light gray initials circle 'UP' left; blue bell icon right)"
+    },
+    {
+      "type": "other",
+      "variant": "period selector",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (left/right chevrons flanking centered 'Expenses' title and '15 Aug – 14 Sep' date range)"
+    },
+    {
+      "type": "card",
+      "variant": "budget summary (over-budget state)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "error/partial (TOTAL EXPENSE serif figure; Budget vs Remaining row; blue progress bar ~85% filled; divider; Food row shows green-ish 'Remaining Rp 300.000'; Shopping row shows red warning icon + 'Over Rp 200.000' in red)"
+    },
+    {
+      "type": "other",
+      "variant": "donut chart with legend",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": null,
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (donut with blue/red/yellow/gray segments; legend rows: dot + label + right-aligned percentage 35/25/20/20%)"
+    },
+    {
+      "type": "card",
+      "variant": "transaction list item (over-budget category variant)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 16px 24px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default and error (Starbucks/GrabRide rows show dark amounts; Indomaret Shopping row shows amount '- Rp 120.000' in red, matching its over-budget category; tinted circular category icons)"
+    },
+    {
+      "type": "other",
+      "variant": "bottom navigation bar",
+      "properties": {
+        "radius_px": null,
+        "padding": "approx 12px vertical",
+        "border": "top divider/shadow",
+        "shadow": "subtle elevation",
+        "icon_present": true
+      },
+      "state_visible": "active ('Expenses' tab highlighted with blue filled rounded pill and white icon+label; Home, Scan, Settings inactive in gray)"
+    }
+  ],
+  "content_patterns": "Over-budget state communicated with red text + circled exclamation warning icon ('Over Rp 200.000') in place of the normal 'Remaining Rp …' pattern. Transactions in over-budget categories are also tinted red at the amount level (Indomaret '- Rp 120.000'), propagating status from category to related line items. Money formatted Indonesian-style with dot thousands separator and 'Rp' prefix. Uppercase micro-labels ('TOTAL EXPENSE', '14 SEP'). 'Remaining' stays green/positive for categories within budget.",
+  "notable_interactions": "Same period navigation (chevrons), tappable transaction rows, and bottom nav with active 'Expenses' pill as default state. Red warning icon + red amounts imply alerting semantics rather than navigation. Progress bar unchanged in blue even when a category is over budget — per-category status is carried by text/icon color instead. Content cut off behind fixed bottom nav implies scrollable list."
+}

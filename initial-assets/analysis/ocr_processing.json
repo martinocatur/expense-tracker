@@ -1,0 +1,75 @@
+{
+  "screen_id": "ocr_processing",
+  "screenshot_path": "screens/ocr_processing.png",
+  "screen_name": "Scan Receipt > OCR Processing (loading state)",
+  "layout": {
+    "structure": "single-column",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 785
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F8F8FB", "usage": "page background (very light lavender off-white)" }
+    ],
+    "text": [
+      { "hex": "#111827", "usage": "primary loading heading 'Reading your receipt...'" },
+      { "hex": "#6B7280", "usage": "secondary loading description 'Extracting amounts and merchant info'" }
+    ],
+    "accent": [
+      { "hex": "#2563EB", "usage": "blue gradient header on receipt illustration, tiny blue detail square" }
+    ],
+    "border": [
+      { "hex": "#E5E7EB", "usage": "indeterminate progress bar track (light gray)" }
+    ],
+    "semantic": []
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 36, "role": "loading heading 'Reading your receipt...' (bold, image ~2x; ~18px at 1x)" },
+      { "px": 32, "role": "loading description 'Extracting amounts and merchant info' (regular)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "loading heading" },
+      { "weight": "400", "role": "loading description" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [16, 24, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "receipt illustration card (rounded top corners visible)" },
+    { "px": 999, "usage": "progress bar (fully rounded pill)" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle diffuse shadow under receipt illustration", "usage": "illustration elevation" }
+  ],
+  "components": [
+    {
+      "type": "other",
+      "variant": "illustration (receipt glyph)",
+      "properties": {
+        "radius_px": 12,
+        "padding": null,
+        "border": "none",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (centered rounded-square receipt mock: light lavender body with blue gradient top bar and small blue square detail)"
+    },
+    {
+      "type": "other",
+      "variant": "indeterminate progress bar",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "active (thin gray track visible; bar appears empty/at start of animation)"
+    }
+  ],
+  "content_patterns": "Reassuring loading-state copy with ellipsis: 'Reading your receipt...' plus a concrete description of what is happening: 'Extracting amounts and merchant info'. No buttons or navigation — a focused, blocking processing state. Progress bar included so the wait feels bounded.",
+  "notable_interactions": "Blocking processing state after receipt capture: implies OCR extraction runs before user sees an editable result. No cancel/back control visible in this frame. Indeterminate progress bar implies ongoing background work."
+}

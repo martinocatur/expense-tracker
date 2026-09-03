@@ -1,0 +1,170 @@
+{
+  "screen_id": "profile_settings",
+  "screenshot_path": "screens/profile_settings.png",
+  "screen_name": "Settings > Profile Settings",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 785
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F6F6FB", "usage": "page background (very light lavender)" },
+      { "hex": "#FFFFFF", "usage": "form card background, top bar, input backgrounds, buttons" }
+    ],
+    "text": [
+      { "hex": "#111827", "usage": "top bar title, input values, primary button label" },
+      { "hex": "#374151", "usage": "uppercase field labels (FULL NAME, EMAIL ADDRESS, PHONE NUMBER, DEFAULT CURRENCY)" },
+      { "hex": "#6B7280", "usage": "'Tap to change avatar' hint, '(Optional)' note, helper text under currency dropdown" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "primary Save button, avatar edit pencil badge, dropdown checkmark" }
+    ],
+    "border": [
+      { "hex": "#D1D5DB", "usage": "input borders, Sign Out button border, avatar outer ring" },
+      { "hex": "#E5E7EB", "usage": "form card border, divider above Save button" }
+    ],
+    "semantic": [
+      { "hex": "#DC2626", "usage": "Sign Out destructive button text and icon" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 36, "role": "top bar title 'Profile Settings' (bold, image ~2x; ~18px at 1x)" },
+      { "px": 28, "role": "'Tap to change avatar' hint" },
+      { "px": 26, "role": "uppercase field labels (bold, letter-spaced)" },
+      { "px": 32, "role": "input value text" },
+      { "px": 26, "role": "'(Optional)' note and helper text" },
+      { "px": 34, "role": "primary button label 'Save Changes' (bold)" },
+      { "px": 30, "role": "'Sign Out' button label" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "top bar title, field labels, 'Save Changes' label" },
+      { "weight": "400", "role": "input text, hints, helper text, 'Sign Out' label" }
+    ],
+    "line_height_notes": "normal; helper text wraps at ~1.4 leading"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "text inputs, dropdown, buttons" },
+    { "px": 16, "usage": "form card container" },
+    { "px": 999, "usage": "avatar and its edit badge" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle shadow on avatar edit badge", "usage": "floating edit control elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "back arrow (icon button)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (dark left-pointing arrow in top bar)"
+    },
+    {
+      "type": "avatar",
+      "variant": "photo avatar with edit badge",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "light gray/white outer ring around photo",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (profile photo with overlapping blue circular pencil badge at bottom-right)"
+    },
+    {
+      "type": "input",
+      "variant": "text with leading icon",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (FULL NAME, person icon, value 'Jane Doe')"
+    },
+    {
+      "type": "input",
+      "variant": "email with leading icon",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (EMAIL ADDRESS, envelope icon, value 'jane.doe@example.com')"
+    },
+    {
+      "type": "input",
+      "variant": "tel with leading icon (optional)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (PHONE NUMBER, phone icon, placeholder 'e.g. +62 812 3456 7890', '(Optional)' note below)"
+    },
+    {
+      "type": "dropdown",
+      "variant": "select with leading icon and trailing check",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (DEFAULT CURRENCY, money icon, value 'IDR - Indonesian Rupiah (Rp)', blue double-check mark at right); helper text below: 'This currency will be used for all reports and summaries.'"
+    },
+    {
+      "type": "card",
+      "variant": "form container",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 32px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle or none",
+        "icon_present": false
+      },
+      "state_visible": "default (wraps all form fields)"
+    },
+    {
+      "type": "button",
+      "variant": "primary",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px 24px, full width",
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default ('Save Changes', blue, below a divider)"
+    },
+    {
+      "type": "button",
+      "variant": "destructive/outline",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px 24px, full width",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default ('Sign Out' in red with logout arrow icon, white background)"
+    }
+  ],
+  "content_patterns": "Uppercase, letter-spaced field labels matching Register screen. Placeholder uses concrete local example ('e.g. +62 812 3456 7890'). Explicit '(Optional)' annotation for non-required fields. Helper text explains consequences ('This currency will be used for all reports and summaries.'). Verb-first button copy: 'Save Changes', 'Sign Out'. Instructional hint under avatar: 'Tap to change avatar'.",
+  "notable_interactions": "Avatar edit badge implies tap-to-upload/change photo. Currency dropdown shows selected state with checkmark implying selectable list. Save button separated by a full-width divider implies form submission; Sign Out is styled as destructive but outlined rather than solid red. Back arrow implies return to Settings root."
+}

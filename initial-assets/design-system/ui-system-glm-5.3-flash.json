@@ -1,0 +1,975 @@
+{
+  "design_tokens": {
+    "colors": {
+      "brand-primary": {
+        "hex": "#1B5BE0",
+        "confidence": "high",
+        "exceptions": [
+          {
+            "hex": "#2563EB",
+            "screens_involved": ["tracking_preference", "budget_reset_date", "scan_receipt_camera", "add_expense_manually"],
+            "usage": "selected-state borders, detection frame corner brackets, dashed add-button border; perceptually close but slightly deeper/more saturated blue"
+          }
+        ]
+      },
+      "surface-page": {
+        "hex": "#F6F6FA",
+        "confidence": "high",
+        "exceptions": [
+          {
+            "hex": "#F4F4FA",
+            "screens_involved": ["register"],
+            "usage": "page background variant"
+          },
+          {
+            "hex": "#F4F2FA",
+            "screens_involved": ["settings"],
+            "usage": "page background variant"
+          },
+          {
+            "hex": "#F8F8FB",
+            "screens_involved": ["tracking_preference", "ocr_processing", "budget_settings", "budget_reset_date", "general_budget_setup_expanded", "categories_management"],
+            "usage": "page background variant"
+          },
+          {
+            "hex": "#F6F6FB",
+            "screens_involved": ["profile_settings", "categories_management", "add_expense_manually"],
+            "usage": "page background variant"
+          }
+        ]
+      },
+      "surface-card": {
+        "hex": "#FFFFFF",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "surface-muted": {
+        "hex": "#D6D8E4",
+        "confidence": "medium",
+        "exceptions": [
+          {
+            "hex": "#D8DAE6",
+            "screens_involved": ["budget_settings"],
+            "usage": "hero/summary card background variant"
+          },
+          {
+            "hex": "#D9DAE3",
+            "screens_involved": ["home"],
+            "usage": "hero/summary card background variant"
+          }
+        ]
+      },
+      "surface-input-fill": {
+        "hex": "#F6F6FB",
+        "confidence": "low",
+        "exceptions": [
+          {
+            "hex": "#EEF2FB",
+            "screens_involved": ["add_expense_manually"],
+            "usage": "inputs rendered on very light lavender fill inside white cards"
+          }
+        ]
+      },
+      "text-primary": {
+        "hex": "#111827",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "text-secondary": {
+        "hex": "#4B5563",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "text-muted": {
+        "hex": "#6B7280",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "brand-on-surface": {
+        "hex": "#1B5BE0",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "border-default": {
+        "hex": "#E5E7EB",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "border-input": {
+        "hex": "#D1D5DB",
+        "confidence": "high",
+        "exceptions": [
+          {
+            "hex": "#9CA3AF",
+            "screens_involved": ["add_expense_manually"],
+            "usage": "slightly darker input borders on form fields"
+          }
+        ]
+      },
+      "success": {
+        "hex": "#16A34A",
+        "confidence": "high",
+        "exceptions": [
+          {
+            "hex": "#15803D",
+            "screens_involved": ["expense_result", "budget_settings"],
+            "usage": "slightly darker green for success checkmark and unallocated-budget value"
+          }
+        ]
+      },
+      "error": {
+        "hex": "#DC2626",
+        "confidence": "high",
+        "exceptions": [
+          {
+            "hex": "#B91C1C",
+            "screens_involved": ["home"],
+            "usage": "darker red for over-budget alert text/badge on tinted background"
+          }
+        ]
+      },
+      "error-tint": {
+        "hex": "#FEE2E2",
+        "confidence": "medium",
+        "exceptions": [
+          {
+            "hex": "#FECACA",
+            "screens_involved": ["home"],
+            "usage": "alert banner border (light red)"
+          }
+        ]
+      },
+      "warning": {
+        "hex": "#F59E0B",
+        "confidence": "medium",
+        "exceptions": []
+      },
+      "chart-category-blue": {
+        "hex": "#1B5BE0",
+        "confidence": "medium",
+        "exceptions": []
+      },
+      "chart-category-red": {
+        "hex": "#EF4444",
+        "confidence": "medium",
+        "exceptions": []
+      },
+      "chart-category-yellow": {
+        "hex": "#F59E0B",
+        "confidence": "medium",
+        "exceptions": []
+      },
+      "chart-category-gray": {
+        "hex": "#6B7280",
+        "confidence": "medium",
+        "exceptions": []
+      },
+      "camera-surface-dark": {
+        "hex": "#1F2937",
+        "confidence": "low",
+        "exceptions": []
+      }
+    },
+    "typography": {
+      "family-body": {
+        "family": "sans-serif (unidentified; Inter/system-ui-like geometric sans)",
+        "size_px": 14,
+        "weight": 400,
+        "line_height": "normal (~1.4)",
+        "confidence": "medium"
+      },
+      "family-display-serif": {
+        "family": "serif (unidentified; Georgia/Playfair-like)",
+        "size_px": 23,
+        "weight": 700,
+        "line_height": "tight",
+        "confidence": "low"
+      },
+      "text-brand": {
+        "family": "family-body",
+        "size_px": 16,
+        "weight": 700,
+        "line_height": "tight",
+        "confidence": "medium"
+      },
+      "text-title-bar": {
+        "family": "family-body",
+        "size_px": 18,
+        "weight": 600,
+        "line_height": "tight",
+        "confidence": "medium"
+      },
+      "text-heading": {
+        "family": "family-body",
+        "size_px": 16,
+        "weight": 700,
+        "line_height": "normal",
+        "confidence": "medium"
+      },
+      "text-section-label": {
+        "family": "family-body",
+        "size_px": 13,
+        "weight": 600,
+        "line_height": "normal",
+        "confidence": "medium"
+      },
+      "text-body": {
+        "family": "family-body",
+        "size_px": 14,
+        "weight": 400,
+        "line_height": "normal (~1.4)",
+        "confidence": "medium"
+      },
+      "text-input": {
+        "family": "family-body",
+        "size_px": 15,
+        "weight": 400,
+        "line_height": "normal",
+        "confidence": "medium"
+      },
+      "text-amount-large": {
+        "family": "family-body (sans) or family-display-serif (serif variant on expenses screens)",
+        "size_px": 30,
+        "weight": 700,
+        "line_height": "tight",
+        "confidence": "medium"
+      },
+      "text-button-label": {
+        "family": "family-body",
+        "size_px": 16,
+        "weight": 600,
+        "line_height": "tight",
+        "confidence": "medium"
+      },
+      "text-caption": {
+        "family": "family-body",
+        "size_px": 12,
+        "weight": 400,
+        "line_height": "normal",
+        "confidence": "medium"
+      }
+    },
+    "spacing": {
+      "space-1": {
+        "value": "8px",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "space-2": {
+        "value": "16px",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "space-3": {
+        "value": "24px",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "space-4": {
+        "value": "32px",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "space-5": {
+        "value": "48px",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "scale": [8, 16, 24, 32, 48]
+    },
+    "radius": {
+      "radius-sm": {
+        "value": "8px",
+        "confidence": "medium",
+        "exceptions": [
+          {
+            "usage": "badges, scan detection frame corners"
+          }
+        ]
+      },
+      "radius-md": {
+        "value": "12px",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "radius-lg": {
+        "value": "16px",
+        "confidence": "high",
+        "exceptions": []
+      },
+      "radius-xl": {
+        "value": "24px",
+        "confidence": "low",
+        "exceptions": [
+          {
+            "screens_involved": ["register"],
+            "usage": "form card container only"
+          }
+        ]
+      },
+      "radius-full": {
+        "value": "999px",
+        "confidence": "high",
+        "exceptions": []
+      }
+    },
+    "shadows": {
+      "shadow-card": {
+        "value": "0 1px 4px rgba(17, 24, 39, 0.06) (very subtle diffuse drop shadow under white cards)",
+        "confidence": "medium"
+      },
+      "shadow-raised": {
+        "value": "0 2px 8px rgba(17, 24, 39, 0.12) (soft shadow on floating/elevated controls: Scan camera button, floating Add Category button, camera UI controls)",
+        "confidence": "low"
+      }
+    }
+  },
+  "component_inventory": [
+    {
+      "name": "TopBar",
+      "variants": [
+        {
+          "name": "brand-centered",
+          "properties": {
+            "layout": "centered blue brand wordmark; optional leading back arrow, optional trailing icons",
+            "border": "1px bottom divider (border-default)",
+            "background": "white or surface-page"
+          },
+          "used_on_screens": ["register", "tracking_preference", "main_expenses_page", "main_expenses_overbudget_state", "home", "expense_result", "add_expense_manually", "general_budget_setup_expanded", "budget_reset_date"]
+        },
+        {
+          "name": "title-with-back",
+          "properties": {
+            "leading": "dark back arrow icon",
+            "title": "bold/semibold title left-aligned or centered",
+            "border": "1px bottom divider"
+          },
+          "used_on_screens": ["profile_settings", "categories_management", "budget_settings", "settings (title centered, no back arrow)"]
+        },
+        {
+          "name": "dashboard",
+          "properties": {
+            "leading": "avatar (photo or initials circle)",
+            "center": "brand wordmark",
+            "trailing": "notification bell icon"
+          },
+          "used_on_screens": ["home", "main_expenses_page", "main_expenses_overbudget_state", "expense_result", "settings (avatar icon + centered title + bell)"]
+        }
+      ],
+      "states": ["default"]
+    },
+    {
+      "name": "BottomNav",
+      "variants": [
+        {
+          "name": "standard",
+          "properties": {
+            "items": ["Home", "Expenses", "Scan", "Settings"],
+            "active_state": "blue filled rounded-pill (radius-md) behind icon + bold white label",
+            "inactive_state": "gray icon + regular label",
+            "position": "fixed bottom, subtle top elevation"
+          },
+          "used_on_screens": ["home", "main_expenses_page", "main_expenses_overbudget_state", "settings"]
+        },
+        {
+          "name": "with-raised-center-action",
+          "properties": {
+            "center_item": "Scan rendered as raised circular blue camera button floating above the bar",
+            "note": "variant observed only on settings screen"
+          },
+          "used_on_screens": ["settings"]
+        }
+      ],
+      "states": ["default", "active"]
+    },
+    {
+      "name": "Button",
+      "variants": [
+        {
+          "name": "primary",
+          "properties": {
+            "background": "brand-primary",
+            "text": "white, semibold/bold",
+            "radius_px": 16,
+            "padding": "approx 20px 24px, full width",
+            "icon": "optional (trailing arrow on Continue, leading icons on Save Expense/Sign Out-like contexts)"
+          },
+          "used_on_screens": ["register", "general_budget_setup_expanded", "budget_settings", "add_expense_manually", "categories_management (floating + Add Category)", "home (Scan Receipt large action variant)"]
+        },
+        {
+          "name": "large-action-card",
+          "properties": {
+            "background": "brand-primary (primary) or surface-muted gray (secondary)",
+            "layout": "stacked icon above centered label",
+            "radius_px": 16,
+            "padding": "approx 40px vertical, full width"
+          },
+          "used_on_screens": ["home"]
+        },
+        {
+          "name": "secondary-outline",
+          "properties": {
+            "background": "white",
+            "border": "1px solid border-input",
+            "text": "text-primary",
+            "icon": "leading (Google G logo)",
+            "radius_px": 16
+          },
+          "used_on_screens": ["register"]
+        },
+        {
+          "name": "destructive-outline",
+          "properties": {
+            "background": "white",
+            "border": "1px solid border-input",
+            "text": "error red with logout icon"
+          },
+          "used_on_screens": ["profile_settings"]
+        },
+        {
+          "name": "destructive-tinted",
+          "properties": {
+            "background": "error-tint",
+            "text": "dark red with trash icon",
+            "radius_px": 16,
+            "layout": "half-width paired with Edit"
+          },
+          "used_on_screens": ["expense_result"]
+        },
+        {
+          "name": "neutral-tinted",
+          "properties": {
+            "background": "light gray-lavender fill",
+            "text": "text-primary with pencil icon",
+            "layout": "half-width paired with Delete"
+          },
+          "used_on_screens": ["expense_result"]
+        },
+        {
+          "name": "dashed-add",
+          "properties": {
+            "border": "dashed 1-2px border (gray or blue)",
+            "background": "transparent",
+            "text": "blue '+ Add …' label, centered",
+            "radius_px": "12-16"
+          },
+          "used_on_screens": ["budget_settings", "add_expense_manually", "general_budget_setup_expanded (solid-border variant)"]
+        },
+        {
+          "name": "icon-button",
+          "properties": {
+            "shape": "circular (camera UI) or bare icon (top bars, list rows)",
+            "background": "translucent dark (camera), white/none (top bars)"
+          },
+          "used_on_screens": ["scan_receipt_camera", "profile_settings", "general_budget_setup_expanded", "budget_settings", "categories_management"]
+        }
+      ],
+      "states": ["default"]
+    },
+    {
+      "name": "Input",
+      "variants": [
+        {
+          "name": "text",
+          "properties": {
+            "radius_px": 12,
+            "border": "1px solid border-input",
+            "padding": "approx 24px",
+            "leading_icon": "optional (person, envelope, phone, magnifier)"
+          },
+          "used_on_screens": ["register", "profile_settings", "add_expense_manually"]
+        },
+        {
+          "name": "password",
+          "properties": {
+            "radius_px": 12,
+            "masked": true
+          },
+          "used_on_screens": ["register"]
+        },
+        {
+          "name": "search",
+          "properties": {
+            "radius_px": 12,
+            "leading_icon": "magnifier",
+            "placeholder": "'Search categories...'"
+          },
+          "used_on_screens": ["categories_management"]
+        },
+        {
+          "name": "amount-large",
+          "properties": {
+            "text": "large bold value with 'Rp' prefix",
+            "radius_px": "12 (form) or 16 (settings)",
+            "notes": "register-onboarding variant uses underline-only border on gray hero card"
+          },
+          "used_on_screens": ["add_expense_manually", "budget_settings", "general_budget_setup_expanded"]
+        },
+        {
+          "name": "date",
+          "properties": {
+            "leading_icon": "calendar",
+            "trailing_icon": "calendar (open affordance)",
+            "radius_px": 12
+          },
+          "used_on_screens": ["add_expense_manually", "budget_settings (select-style with calendar icon)"]
+        }
+      ],
+      "states": ["default", "focus (blue underline segment on amount input in onboarding hero card)", "filled"]
+    },
+    {
+      "name": "Select",
+      "variants": [
+        {
+          "name": "dropdown-row",
+          "properties": {
+            "radius_px": 12,
+            "leading_icon": "category icon",
+            "trailing_indicator": "blue double-check mark on selected state",
+            "helper_text": "optional below"
+          },
+          "used_on_screens": ["profile_settings", "add_expense_manually"]
+        },
+        {
+          "name": "date-select",
+          "properties": {
+            "trailing_icon": "calendar",
+            "radius_px": 12
+          },
+          "used_on_screens": ["budget_settings"]
+        }
+      ],
+      "states": ["default", "selected"]
+    },
+    {
+      "name": "Card",
+      "variants": [
+        {
+          "name": "list-group",
+          "properties": {
+            "radius_px": 12,
+            "border": "1px solid border-default",
+            "rows": "full-width dividers between rows",
+            "shadow": "shadow-card"
+          },
+          "used_on_screens": ["settings", "categories_management", "expense_result"]
+        },
+        {
+          "name": "form-container",
+          "properties": {
+            "radius_px": "16-24",
+            "border": "1px solid border-default",
+            "shadow": "shadow-card"
+          },
+          "used_on_screens": ["register", "profile_settings", "add_expense_manually (sectioned cards)"]
+        },
+        {
+          "name": "hero-summary",
+          "properties": {
+            "background": "surface-muted (gray-lavender)",
+            "radius_px": 16,
+            "content": "uppercase label + large amount/figure, optional progress bar and status badge"
+          },
+          "used_on_screens": ["home", "expense_result", "budget_settings", "general_budget_setup_expanded"]
+        },
+        {
+          "name": "option-tile-selectable",
+          "properties": {
+            "radius_px": 12,
+            "unselected": "gray-lavender/white fill + border-input",
+            "selected": "blue border + light blue tint + check badge or icon"
+          },
+          "used_on_screens": ["tracking_preference", "budget_reset_date"]
+        },
+        {
+          "name": "transaction-item",
+          "properties": {
+            "radius_px": 12,
+            "layout": "tinted circular category icon | name + subtitle | right-aligned bold amount",
+            "grouping": "grouped under uppercase date headers",
+            "error_variant": "amount rendered in red for over-budget categories"
+          },
+          "used_on_screens": ["main_expenses_page", "main_expenses_overbudget_state", "home"]
+        },
+        {
+          "name": "alert-banner",
+          "properties": {
+            "background": "error-tint",
+            "border": "light red",
+            "layout": "warning icon circle | title + status subtitle | right-aligned bold red value",
+            "radius_px": 16
+          },
+          "used_on_screens": ["home"]
+        }
+      ],
+      "states": ["default", "selected/active", "error"]
+    },
+    {
+      "name": "ListItem",
+      "variants": [
+        {
+          "name": "settings-row",
+          "properties": {
+            "layout": "left icon | label | optional right value text | right chevron",
+            "value_text": "e.g. 'Active' (green) or 'IDR - Rp' (muted)"
+          },
+          "used_on_screens": ["settings"]
+        },
+        {
+          "name": "category-row",
+          "properties": {
+            "layout": "lavender circular icon + name; optional SYSTEM badge and padlock for protected items"
+          },
+          "used_on_screens": ["categories_management"]
+        },
+        {
+          "name": "category-budget-row",
+          "properties": {
+            "layout": "tinted circular icon | title bold + amount | pencil (edit) + trash (delete) icons"
+          },
+          "used_on_screens": ["budget_settings", "general_budget_setup_expanded (trash only)"]
+        },
+        {
+          "name": "line-item-row",
+          "properties": {
+            "layout": "name left, right-aligned bold amount (receipt line items)"
+          },
+          "used_on_screens": ["expense_result"]
+        }
+      ],
+      "states": ["default", "disabled (locked system category)"]
+    },
+    {
+      "name": "Badge",
+      "variants": [
+        {
+          "name": "status-error",
+          "properties": {
+            "background": "error-tint",
+            "text": "dark red, bold, small",
+            "radius_px": 8
+          },
+          "used_on_screens": ["home ('Overbudget')"]
+        },
+        {
+          "name": "system-tag",
+          "properties": {
+            "background": "gray",
+            "text": "'SYSTEM' uppercase, letter-spaced",
+            "radius_px": 8
+          },
+          "used_on_screens": ["categories_management"]
+        },
+        {
+          "name": "category-chip",
+          "properties": {
+            "background": "light blue tint",
+            "text": "brand blue + icon",
+            "radius_px": 999
+          },
+          "used_on_screens": ["expense_result ('Konsumsi')"]
+        }
+      ],
+      "states": ["default"]
+    },
+    {
+      "name": "Avatar",
+      "variants": [
+        {
+          "name": "initials",
+          "properties": {
+            "shape": "circle",
+            "background": "brand blue (settings profile) or light gray (top bar 'UP')"
+          },
+          "used_on_screens": ["settings", "main_expenses_page", "main_expenses_overbudget_state"]
+        },
+        {
+          "name": "photo",
+          "properties": {
+            "shape": "circle",
+            "edit_badge": "optional blue circular pencil badge (profile_settings)"
+          },
+          "used_on_screens": ["home", "profile_settings"]
+        }
+      ],
+      "states": ["default"]
+    },
+    {
+      "name": "Toggle",
+      "variants": [
+        {
+          "name": "switch",
+          "properties": {
+            "track": "blue when on, white knob",
+            "radius_px": 999
+          },
+          "used_on_screens": ["budget_settings (on state)"]
+        }
+      ],
+      "states": ["on"]
+    },
+    {
+      "name": "ProgressBar",
+      "variants": [
+        {
+          "name": "budget-utilization",
+          "properties": {
+            "track": "border-default light gray, radius-full",
+            "fill": "brand blue normally; red when over budget (home)",
+            "height": "thin (~8px)"
+          },
+          "used_on_screens": ["main_expenses_page", "main_expenses_overbudget_state", "home"]
+        },
+        {
+          "name": "wizard-progress",
+          "properties": {
+            "fill": "brand blue proportional to step (1/3 at step 1)",
+            "position": "below top bar"
+          },
+          "used_on_screens": ["budget_reset_date"]
+        },
+        {
+          "name": "indeterminate-loading",
+          "properties": {
+            "track": "border-default",
+            "animation": "implied ongoing work"
+          },
+          "used_on_screens": ["ocr_processing"]
+        }
+      ],
+      "states": ["default", "over-budget (red fill)"]
+    },
+    {
+      "name": "Chart",
+      "variants": [
+        {
+          "name": "donut-with-legend",
+          "properties": {
+            "segments": ["blue Food", "red Shopping", "yellow Education", "gray Other"],
+            "legend_layout": "dot + label left, right-aligned percentage"
+          },
+          "used_on_screens": ["main_expenses_page", "main_expenses_overbudget_state"]
+        }
+      ],
+      "states": ["default"]
+    },
+    {
+      "name": "LoadingState",
+      "variants": [
+        {
+          "name": "processing",
+          "properties": {
+            "layout": "centered illustration + bold heading + muted description + indeterminate progress bar",
+            "no_controls": true
+          },
+          "used_on_screens": ["ocr_processing"]
+        }
+      ],
+      "states": ["loading"]
+    },
+    {
+      "name": "SuccessIndicator",
+      "variants": [
+        {
+          "name": "check-circle",
+          "properties": {
+            "structure": "green check circle nested in larger light circle, centered above heading"
+          },
+          "used_on_screens": ["expense_result", "tracking_preference (small check badge on selected card)"]
+        }
+      ],
+      "states": ["success"]
+    },
+    {
+      "name": "Divider",
+      "variants": [
+        {
+          "name": "row-divider",
+          "properties": {
+            "color": "border-default, full width"
+          },
+          "used_on_screens": ["settings", "categories_management", "expense_result", "main_expenses_page"]
+        },
+        {
+          "name": "labeled-divider",
+          "properties": {
+            "structure": "thin rules flanking centered uppercase label ('OR')"
+          },
+          "used_on_screens": ["register"]
+        }
+      ],
+      "states": ["default"]
+    },
+    {
+      "name": "StepIndicator",
+      "variants": [
+        {
+          "name": "text-counter",
+          "properties": {
+            "format": "'STEP N OF 3' uppercase letter-spaced in top bar (top-right) or beside solid blue circle"
+          },
+          "used_on_screens": ["general_budget_setup_expanded", "budget_reset_date"]
+        },
+        {
+          "name": "progress-bar",
+          "properties": {
+            "fill": "proportional blue bar under top bar"
+          },
+          "used_on_screens": ["budget_reset_date"]
+        }
+      ],
+      "states": ["active"]
+    },
+    {
+      "name": "CameraCaptureOverlay",
+      "variants": [
+        {
+          "name": "document-scan",
+          "properties": {
+            "structure": "full-screen dark camera feed, close + flash circular buttons, centered instruction pill, detection frame with blue corner marks and faint grid, shutter ring, thumbnail, AUTO mode circle"
+          },
+          "used_on_screens": ["scan_receipt_camera"]
+        }
+      ],
+      "states": ["active (live detection)"]
+    },
+    {
+      "name": "Illustration",
+      "variants": [
+        {
+          "name": "receipt-glyph",
+          "properties": {
+            "structure": "rounded-square receipt mock with blue gradient top bar",
+            "radius_px": 12
+          },
+          "used_on_screens": ["ocr_processing"]
+        }
+      ],
+      "states": ["default"]
+    },
+    {
+      "name": "IconAvatar",
+      "variants": [
+        {
+          "name": "tinted-circle",
+          "properties": {
+            "shape": "circle",
+            "background": "light tint per category (lavender default, peach for Shopping, blue for Education, etc.)",
+            "icon": "dark navy/colored glyph"
+          },
+          "used_on_screens": ["main_expenses_page", "main_expenses_overbudget_state", "home", "budget_settings", "general_budget_setup_expanded", "categories_management", "expense_result", "tracking_preference"]
+        }
+      ],
+      "states": ["default"]
+    }
+  ],
+  "component_relationships": "TopBar sits above all content; sub-pages add a back arrow, dashboard pages add avatar + bell. Content is composed of full-width Cards on the lavender page background; Cards contain ListItems, Inputs, or summary content. Forms wrap each field group in its own white Card with uppercase SectionLabels, and terminate in a full-width primary Button (often pinned near the bottom, separated by a Divider). Selectable option Cards (preference/onboarding) use border + tint + check/icon for selected state. Category data flows through IconAvatar + ListItem rows; amounts use the money-format convention; status (over-budget) propagates from summary Card to Badge/AlertBanner to red transaction amounts. BottomNav is fixed and floats over scrollable content; it composes a raised circular Scan action on some screens. LoadingState replaces screen content wholesale during OCR; SuccessIndicator heads the post-save result screen. Wizard screens compose StepIndicator (progress bar + counter) + option-tile Cards + primary Continue Button.",
+  "layout_patterns": [
+    {
+      "pattern_name": "top-nav+single-column-scroll",
+      "used_on_screens": ["register", "tracking_preference", "settings", "profile_settings", "categories_management", "budget_settings", "add_expense_manually", "expense_result", "general_budget_setup_expanded", "budget_reset_date", "ocr_processing", "home", "main_expenses_page", "main_expenses_overbudget_state"],
+      "structure": "fixed top bar; single-column content scrolling beneath; optional fixed bottom nav or pinned CTA button"
+    },
+    {
+      "pattern_name": "fixed-bottom-cta",
+      "used_on_screens": ["categories_management", "budget_settings", "add_expense_manually", "general_budget_setup_expanded", "register"],
+      "structure": "full-width primary button pinned near viewport bottom, content scrolls behind it (sometimes over a divider)"
+    },
+    {
+      "pattern_name": "bottom-nav-shell",
+      "used_on_screens": ["settings", "home", "main_expenses_page", "main_expenses_overbudget_state"],
+      "structure": "app-level screens: top bar + scrollable content + fixed bottom navigation with active blue pill; content cut off behind nav implies scroll"
+    },
+    {
+      "pattern_name": "wizard-step",
+      "used_on_screens": ["general_budget_setup_expanded", "budget_reset_date"],
+      "structure": "top bar with back + STEP N OF 3, optional progress bar, centered question heading, choice tiles or form, primary Continue/CTA"
+    },
+    {
+      "pattern_name": "full-screen-camera",
+      "used_on_screens": ["scan_receipt_camera"],
+      "structure": "immersive dark camera feed with floating circular controls, instruction pill, detection frame, bottom capture row"
+    },
+    {
+      "pattern_name": "two-column-tile-grid",
+      "used_on_screens": ["budget_reset_date"],
+      "structure": "2-column grid of selectable option tiles (the only multi-column layout observed)"
+    }
+  ],
+  "page_patterns": [
+    {
+      "page_type": "auth/onboarding",
+      "screens_matching": ["register", "tracking_preference", "general_budget_setup_expanded", "budget_reset_date", "ocr_processing"],
+      "typical_layout": "light lavender background, centered headings with reassuring subtitles, single-column cards, wizard step indicators, full-width primary CTA"
+    },
+    {
+      "page_type": "dashboard/home",
+      "screens_matching": ["home", "main_expenses_page", "main_expenses_overbudget_state"],
+      "typical_layout": "top bar with avatar+bell, summary hero card (budget status), optional alert banner, quick-action buttons (home) or chart+transactions (expenses), recent transaction list grouped by date, bottom nav"
+    },
+    {
+      "page_type": "settings/list-management",
+      "screens_matching": ["settings", "profile_settings", "categories_management", "budget_settings"],
+      "typical_layout": "top bar with back + title, white grouped list/form cards on lavender background, uppercase section labels, rows with icon+label+chevron or inline edit/delete, floating bottom CTA"
+    },
+    {
+      "page_type": "capture/scan-flow",
+      "screens_matching": ["scan_receipt_camera", "ocr_processing", "expense_result"],
+      "typical_layout": "progression from immersive camera capture → minimal blocking processing state → success confirmation with detail card and paired Edit/Delete actions"
+    }
+  ],
+  "responsive_rules": "All 15 screenshots are mobile-width (593-785px captured widths) with single-column layouts and mobile bottom navigation; there is no evidence of tablet or desktop layouts, and no breakpoint information can be reliably inferred. The only multi-column arrangement is the 2-column option-tile grid on budget_reset_date. Content width appears unconstrained (full-bleed) on mobile; no max-width container is evidenced.",
+  "content_patterns": "Tone is friendly, plain-language, and reassuring (e.g. 'You can change this later in settings.', 'Just log what you spend'). Headings often take question form in onboarding ('How do you want to track your expenses?', 'When does your budget reset?'). CTAs are verb-first: 'Create Account', 'Continue', 'Save Changes', 'Save Expense', 'Add Category', 'Add Item', 'Scan Receipt', 'Add Expense'. Optional fields are explicitly annotated '(OPTIONAL)' / '(Optional)'. Field labels are uppercase, letter-spaced (FULL NAME, EMAIL ADDRESS, AMOUNT (RP)). Helper text explains consequences ('This currency will be used for all reports and summaries.'). Money is Indonesian-formatted: 'Rp' prefix, dot thousands separator ('Rp 5.000.000'), expenses negated ('- Rp 85.000'); unallocated/remaining values green, over-budget values red with warning icon. Uppercase micro-labels for meta info (date headers '14 SEP', 'TOTAL EXPENSE', 'STEP 1 OF 3'). Loading copy uses ellipsis + concrete description ('Reading your receipt... / Extracting amounts and merchant info'). Success states state the outcome plainly ('Expense Saved'). English UI with one localized category label ('Konsumsi') observed.",
+  "needs_human_review": [
+    {
+      "issue": "Absolute px values for typography cannot be canonized reliably",
+      "screens_involved": ["all"],
+      "why": "Screenshots were captured at differing pixel densities (593px, 705px, 720px, 785px wide), so font-size measurements across screens are not directly comparable. The typography tokens above are normalized estimates (assuming ~2x capture) with medium/low confidence; a real implementation should sample rendered values from code."
+    },
+    {
+      "issue": "Two brand-blue variants coexist",
+      "screens_involved": ["tracking_preference", "budget_reset_date", "scan_receipt_camera", "add_expense_manually", "all others using #1B5BE0"],
+      "why": "#1B5BE0 dominates (buttons, logo, accents) but #2563EB is used for selected borders, frame corners, and a dashed button border. Whether this is one token with a 'selected/deep' variant or two tokens requires confirmation."
+    },
+    {
+      "issue": "Serif vs sans for large money figures",
+      "screens_involved": ["main_expenses_page", "main_expenses_overbudget_state", "home", "expense_result", "budget_settings"],
+      "why": "The TOTAL EXPENSE figure is rendered in a serif display face on the two expenses screens, while equally large money figures on home/expense_result/budget_settings use bold sans-serif. Intent (deliberate display style vs one-off) is unclear."
+    },
+    {
+      "issue": "Bottom-nav Scan item inconsistency",
+      "screens_involved": ["settings", "home", "main_expenses_page", "main_expenses_overbudget_state"],
+      "why": "On settings, Scan is a raised circular floating camera button; on home and expenses screens it is a standard inline nav item. Determine whether both are intentional variants."
+    },
+    {
+      "issue": "Success green has two shades",
+      "screens_involved": ["settings", "main_expenses_page", "main_expenses_overbudget_state", "expense_result", "budget_settings"],
+      "why": "#16A34A (3 screens) vs #15803D (2 screens) both serve success/positive semantics; equal-ish frequency prevents mode selection."
+    },
+    {
+      "issue": "Page background hex drift",
+      "screens_involved": ["register", "settings", "tracking_preference", "ocr_processing", "budget_settings", "general_budget_setup_expanded", "categories_management", "add_expense_manually", "profile_settings", "home", "main_expenses_page"],
+      "why": "Background reads as #F4F4FA-#F8F8FB across screens; likely a single token captured with slight rendering differences, but canonical hex should be confirmed from code."
+    },
+    {
+      "issue": "Input border color conflict",
+      "screens_involved": ["add_expense_manually", "register", "profile_settings"],
+      "why": "add_expense_manually uses darker #9CA3AF borders while other forms use #D1D5DB; possibly a focus/darker variant or inconsistency."
+    },
+    {
+      "issue": "Card container radius varies (16 vs 24)",
+      "screens_involved": ["register", "profile_settings", "add_expense_manually"],
+      "why": "register uses a 24px card container while all other cards are 12-16px; treat 24px as low-confidence exception."
+    },
+    {
+      "issue": "No input error/field-validation states observed",
+      "screens_involved": ["all form screens"],
+      "why": "No screenshot shows invalid-input styling; any error-state spec for inputs would be invented. Error styling is only evidenced at card/badge/amount level."
+    },
+    {
+      "issue": "Font family unidentified",
+      "screens_involved": ["all"],
+      "why": "Analyses consistently describe an Inter/system-ui-like sans plus a serif display face for figures; exact families need confirmation from the codebase or brand assets."
+    }
+  ]
+}

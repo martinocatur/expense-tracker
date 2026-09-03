@@ -1,0 +1,132 @@
+{
+  "screen_id": "categories_management",
+  "screenshot_path": "screens/categories_management.png",
+  "screen_name": "Settings > Categories (manage expense categories)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 705
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F6F6FB", "usage": "page background (very light lavender)" },
+      { "hex": "#FFFFFF", "usage": "search bar, category list card background, top bar" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "top bar title 'Categories', Add Category button background" },
+      { "hex": "#111827", "usage": "category names, search placeholder text" },
+      { "hex": "#374151", "usage": "'SYSTEM' badge text (dark gray)" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "primary 'Add Category' button, title, category icon tint (dark navy icons on lavender circles)" }
+    ],
+    "border": [
+      { "hex": "#D1D5DB", "usage": "search input border" },
+      { "hex": "#E5E7EB", "usage": "row dividers within category list card, top bar divider" }
+    ],
+    "semantic": []
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 34, "role": "top bar title 'Categories' (bold, image ~2x; ~17px at 1x)" },
+      { "px": 30, "role": "search placeholder 'Search categories...'" },
+      { "px": 30, "role": "category names" },
+      { "px": 24, "role": "'SYSTEM' badge text (uppercase, letter-spaced, semibold)" },
+      { "px": 32, "role": "'Add Category' button label (semibold)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "top bar title" },
+      { "weight": "600", "role": "'SYSTEM' badge, 'Add Category' label" },
+      { "weight": "400", "role": "search placeholder, category names" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "search input, list container" },
+    { "px": 8, "usage": "'SYSTEM' badge" },
+    { "px": 16, "usage": "'Add Category' button" },
+    { "px": 999, "usage": "category icon circles" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle diffuse shadow under search bar and list card", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "back arrow (icon button)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (dark left arrow, top-left)"
+    },
+    {
+      "type": "input",
+      "variant": "search with leading icon",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (magnifier icon + placeholder 'Search categories...')"
+    },
+    {
+      "type": "card",
+      "variant": "category list (single grouped card with row dividers)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 24px per row",
+        "border": "1px solid #E5E7EB (card outline), full-width dividers between rows",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (rows: General with 'SYSTEM' badge + gray lock icon, Food & Beverage, Transportation, Shopping, Education, Health, Entertainment, Bills, Family, Travel; each with lavender circular icon left, name label; last row partially cut off behind floating button)"
+    },
+    {
+      "type": "badge",
+      "variant": "system tag",
+      "properties": {
+        "radius_px": 8,
+        "padding": "approx 6px 12px",
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (gray filled pill 'SYSTEM' next to 'General' name)"
+    },
+    {
+      "type": "other",
+      "variant": "locked indicator icon",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "disabled (gray padlock right side of General row, indicating non-editable system category)"
+    },
+    {
+      "type": "button",
+      "variant": "primary (floating, full-width)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px",
+        "border": "none",
+        "shadow": "elevated floating above list content",
+        "icon_present": true
+      },
+      "state_visible": "default ('+ Add Category' with plus icon, fixed/overlaying bottom of list)"
+    }
+  ],
+  "content_patterns": "Single search field filters list ('Search categories...'). Categories listed alphabetically as icon + label rows; the default 'General' row carries a 'SYSTEM' tag and padlock to signal it is protected/non-deletable. Floating verb-first CTA '+ Add Category' anchored at bottom. No per-row chevrons — rows appear to be the edit surface themselves.",
+  "notable_interactions": "Search input implies filtering the category list. Padlock on 'General' implies disabled editing/deletion for system categories while others are editable (tap-to-edit implied). Floating 'Add Category' button implies a creation flow (likely modal or new screen); it overlays/cuts off the last visible row, indicating fixed positioning over scrolling content. Back arrow implies return to Settings."
+}

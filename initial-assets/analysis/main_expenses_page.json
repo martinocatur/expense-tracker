@@ -1,0 +1,143 @@
+{
+  "screen_id": "main_expenses_page",
+  "screenshot_path": "screens/main_expenses_page.png",
+  "screen_name": "Expenses (dashboard overview with budget, category breakdown, recent transactions)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 593
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F6F6FA", "usage": "page background (very light lavender)" },
+      { "hex": "#FFFFFF", "usage": "summary card, category breakdown card, transaction cards, top bars" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand logo 'ExpenseTracker', total expense figure 'Rp 4.250.000'" },
+      { "hex": "#111827", "usage": "period title 'Expenses', section headers, budget value, transaction names/amounts, legend percentages" },
+      { "hex": "#4B5563", "usage": "date-range subtitle '15 Aug – 14 Sep', category labels in summary card, 'Remaining' label" },
+      { "hex": "#6B7280", "usage": "transaction subcategory text ('Food & Beverage', 'Transport', 'Shopping')" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "budget progress bar fill, Food category dot/legend, notification bell, avatar initials badge" }
+    ],
+    "border": [
+      { "hex": "#E5E7EB", "usage": "card borders, divider between budget and category list, top bar divider" }
+    ],
+    "semantic": [
+      { "hex": "#16A34A", "usage": "'Remaining Rp 750.000' positive budget value (success/green)" },
+      { "hex": "#EF4444", "usage": "Shopping category dot (red)" },
+      { "hex": "#F59E0B", "usage": "Education category (yellow/amber)" },
+      { "hex": "#6B7280", "usage": "'Other' category (gray)" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["serif (total expense figure, e.g. Georgia/Playfair-like)", "sans-serif (unidentified, Inter/system-ui-like, all other text)"],
+    "sizes_observed": [
+      { "px": 28, "role": "brand logo (bold, image ~2x; ~14px at 1x)" },
+      { "px": 28, "role": "period title 'Expenses' (regular)" },
+      { "px": 22, "role": "date-range subtitle" },
+      { "px": 24, "role": "'TOTAL EXPENSE' label (uppercase, letter-spaced, semibold)" },
+      { "px": 46, "role": "total expense figure (serif, bold)" },
+      { "px": 26, "role": "'Budget'/'Remaining' labels" },
+      { "px": 28, "role": "budget/remaining values, legend percentages, category rows in summary card" },
+      { "px": 30, "role": "section headers 'Category Breakdown', 'Recent Transactions'" },
+      { "px": 22, "role": "date group headers '14 SEP', '13 SEP', '12 SEP' (uppercase, letter-spaced)" },
+      { "px": 30, "role": "transaction titles (bold)" },
+      { "px": 26, "role": "transaction subtitles" },
+      { "px": 30, "role": "transaction amounts (bold)" },
+      { "px": 24, "role": "bottom-nav labels" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo, total expense figure, section headers, transaction titles and amounts, active nav label" },
+      { "weight": "600", "role": "'TOTAL EXPENSE' label" },
+      { "weight": "400", "role": "subtitle, labels, transaction subtitles, inactive nav labels" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "summary card, breakdown card, transaction cards, active bottom-nav pill" },
+    { "px": 999, "usage": "avatar circle, category icon circles, budget progress bar" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle, diffuse drop shadow under cards and transaction rows", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "top bar avatar (initials) and notification bell",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (light gray initials circle 'UP' left; blue bell icon right)"
+    },
+    {
+      "type": "other",
+      "variant": "period selector",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (left/right chevrons flanking centered 'Expenses' title and '15 Aug – 14 Sep' date range)"
+    },
+    {
+      "type": "card",
+      "variant": "budget summary",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 24px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": false
+      },
+      "state_visible": "default (TOTAL EXPENSE serif figure; Budget vs Remaining row; blue progress bar ~85% filled; divider; per-category remaining rows with colored dots)"
+    },
+    {
+      "type": "other",
+      "variant": "donut chart with legend",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": null,
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (donut with blue/red/yellow/gray segments; legend rows: dot + label + right-aligned percentage)"
+    },
+    {
+      "type": "card",
+      "variant": "transaction list item",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 16px 20px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (tinted circular category icon left; merchant name bold + category subtitle; right-aligned negative amount; grouped under uppercase date headers)"
+    },
+    {
+      "type": "other",
+      "variant": "bottom navigation bar",
+      "properties": {
+        "radius_px": null,
+        "padding": "approx 12px vertical",
+        "border": "top divider/shadow",
+        "shadow": "subtle elevation",
+        "icon_present": true
+      },
+      "state_visible": "active ('Expenses' tab highlighted with blue filled rounded pill and white icon+label; Home, Scan, Settings inactive in gray)"
+    }
+  ],
+  "content_patterns": "Money formatted Indonesian-style with dot thousands separator and 'Rp' prefix ('Rp 4.250.000'); expenses shown as '- Rp 85.000'. Uppercase micro-labels ('TOTAL EXPENSE', date headers '14 SEP'). Section headers in plain Title Case ('Category Breakdown', 'Recent Transactions'). Transactions grouped chronologically by date, newest first. Per-category status uses dot + label + right-aligned value pattern. 'Remaining' framed positively in green.",
+  "notable_interactions": "Left/right chevrons imply navigating between budget periods. Progress bar implies budget utilization visualization. Donut chart legend rows align percentages right. Transaction rows imply tappable detail views. Bottom nav shows active state via filled blue pill on 'Expenses'. Content cut off behind fixed bottom nav implies scrollable transaction list."
+}

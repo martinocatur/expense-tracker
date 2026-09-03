@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expenses · Over Budget · ExpenseTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/design-system.css" rel="stylesheet">
+  <style>
+    .ds-period-nav { color: var(--ds-text-primary); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="ds-shell">
+    <header class="ds-topbar">
+      <a href="profile_settings.html" class="ds-avatar ds-avatar-initials">UP</a>
+      <a href="home.html" class="ds-topbar-brand">ExpenseTracker</a>
+      <a href="#" class="ds-icon-btn" aria-label="Notifications"><i class="bi bi-bell fs-4" style="color:var(--ds-brand-primary);"></i></a>
+    </header>
+
+    <div class="ds-content">
+      <!-- Period selector -->
+      <div class="d-flex align-items-center justify-content-between px-2 mb-2">
+        <a href="#" class="ds-period-nav fs-4"><i class="bi bi-chevron-left"></i></a>
+        <div class="text-center">
+          <div class="fs-4">Expenses</div>
+          <div class="ds-row-value">15 Aug – 14 Sep</div>
+        </div>
+        <div class="d-flex align-items-center gap-1">
+          <button type="button" class="ds-filter-btn" id="filterButton" data-bs-toggle="modal" data-bs-target="#filterModal" aria-label="Filter transactions">
+            <i class="bi bi-funnel"></i>
+          </button>
+          <a href="#" class="ds-period-nav fs-4"><i class="bi bi-chevron-right"></i></a>
+        </div>
+      </div>
+
+      <div id="filterStatus" class="justify-content-center align-items-center gap-2 mb-3" style="display:none;">
+        <span class="ds-caption">Filtered results</span>
+        <button type="button" class="ds-caption bg-transparent border-0 p-0 text-decoration-underline" id="filterClear" style="color:var(--ds-brand-primary);">Clear</button>
+      </div>
+
+      <!-- Budget summary (over-budget state on Shopping) -->
+      <section class="p-4" style="background: linear-gradient(160deg, #DEE0EC 0%, var(--ds-surface-muted) 100%); border-radius: var(--ds-radius-lg); box-shadow: var(--ds-shadow-card);">
+        <span class="ds-label" style="color:var(--ds-text-secondary);">Total Expense</span>
+        <div class="ds-figure-serif mt-1 mb-3" style="color:var(--ds-brand-primary);font-size:2.4rem;line-height:1.1;">Rp 4.250.000</div>
+
+        <div class="d-flex justify-content-between mb-1" style="color:var(--ds-text-secondary);">
+          <span>Budget</span><span>Remaining</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-baseline mb-3">
+          <span class="ds-money">Rp 5.000.000</span>
+          <span class="ds-money ds-money-success">Rp 750.000</span>
+        </div>
+        <div class="ds-progress mb-3">
+          <div class="ds-progress-bar" style="width:85%;"></div>
+        </div>
+
+        <hr style="border-color:var(--ds-border-default);opacity:1;">
+
+        <div class="d-flex align-items-center gap-2 py-1">
+          <span class="ds-legend-dot" style="background:var(--ds-brand-primary);"></span>
+          <span style="color:var(--ds-text-secondary);">Food</span>
+          <span class="ms-auto ds-money">Remaining Rp 300.000</span>
+        </div>
+        <div class="d-flex align-items-center gap-2 py-2">
+          <span class="ds-legend-dot" style="background:#EF4444;"></span>
+          <span style="color:var(--ds-text-secondary);">Shopping</span>
+          <span class="ms-auto ds-money ds-money-error">
+            <i class="bi bi-exclamation-circle me-1"></i>Over Rp 200.000
+          </span>
+        </div>
+      </section>
+
+      <!-- Category breakdown -->
+      <h2 class="ds-section-title mt-5 mb-3">Category Breakdown</h2>
+      <section class="ds-card p-4">
+        <div class="d-flex align-items-center gap-4">
+          <div class="ds-donut flex-shrink-0" role="img" aria-label="Spending by category: Food 35%, Shopping 25%, Education 20%, Other 20%"></div>
+          <div class="flex-grow-1 d-grid gap-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="ds-legend-dot" style="background:var(--ds-brand-primary);"></span>
+              <span>Food</span><span class="ms-auto ds-row-value">35%</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="ds-legend-dot" style="background:#EF4444;"></span>
+              <span>Shopping</span><span class="ms-auto ds-row-value">25%</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="ds-legend-dot" style="background:var(--ds-warning);"></span>
+              <span>Education</span><span class="ms-auto ds-row-value">20%</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="ds-legend-dot" style="background:#6B7280;"></span>
+              <span>Other</span><span class="ms-auto ds-row-value">20%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent transactions (over-budget amount highlighted) -->
+      <h2 class="ds-section-title mt-5 mb-3">Recent Transactions</h2>
+
+      <div class="ds-date-header mb-2" data-group="sep14">14 Sep</div>
+      <div class="ds-transaction mb-3" data-name="Starbucks" data-category="Food & Beverage" data-date="2026-09-14" data-group="sep14">
+        <span class="ds-icon-avatar ds-icon-avatar-sm ds-tint-lavender"><i class="bi bi-egg-fried"></i></span>
+        <div>
+          <div class="name">Starbucks</div>
+          <div class="category">Food &amp; Beverage</div>
+        </div>
+        <span class="amount">- Rp 85.000</span>
+      </div>
+
+      <div class="ds-date-header mb-2" data-group="sep13">13 Sep</div>
+      <div class="ds-transaction mb-3" data-name="GrabRide" data-category="Transport" data-date="2026-09-13" data-group="sep13">
+        <span class="ds-icon-avatar ds-icon-avatar-sm ds-tint-gray"><i class="bi bi-car-front"></i></span>
+        <div>
+          <div class="name">GrabRide</div>
+          <div class="category">Transport</div>
+        </div>
+        <span class="amount">- Rp 45.000</span>
+      </div>
+
+      <div class="ds-date-header mb-2" data-group="sep12">12 Sep</div>
+      <div class="ds-transaction mb-3" data-name="Indomaret" data-category="Shopping" data-date="2026-09-12" data-group="sep12">
+        <span class="ds-icon-avatar ds-icon-avatar-sm ds-tint-peach"><i class="bi bi-bag"></i></span>
+        <div>
+          <div class="name">Indomaret</div>
+          <div class="category">Shopping</div>
+        </div>
+        <span class="amount over">- Rp 120.000</span>
+      </div>
+
+      <div id="transactionsEmpty" class="text-center ds-caption py-4" style="display:none;">No transactions match your filters.</div>
+    </div>
+
+    <!-- Bottom navigation -->
+    <nav class="ds-bottomnav">
+      <div class="d-flex justify-content-around align-items-center">
+        <a href="home.html" class="ds-nav-item">
+          <i class="bi bi-house-door"></i>
+          <span>Home</span>
+        </a>
+        <a href="main_expenses_page.html" class="ds-nav-item">
+          <span class="ds-nav-pill d-flex flex-column align-items-center px-3 py-2">
+            <i class="bi bi-wallet2"></i>
+            <span>Expenses</span>
+          </span>
+        </a>
+        <a href="scan_receipt_camera.html" class="ds-nav-item">
+          <i class="bi bi-camera"></i>
+          <span>Scan</span>
+        </a>
+        <a href="settings.html" class="ds-nav-item">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <!-- Transaction filter modal -->
+  <div class="modal fade ds-modal" id="filterModal" tabindex="-1" aria-labelledby="filterModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-2">
+          <h5 class="modal-title fw-bold" id="filterModalTitle">Filter Transactions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="filterForm" novalidate>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="filterSearch" class="ds-label">Search</label>
+              <div class="ds-input-icon">
+                <i class="bi bi-search"></i>
+                <input type="search" class="form-control ds-input" id="filterSearch" placeholder="Merchant name...">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="filterCategory" class="ds-label">Category</label>
+              <select class="form-select ds-input" id="filterCategory">
+                <option value="" selected>All categories</option>
+                <option>Food &amp; Beverage</option>
+                <option>Transport</option>
+                <option>Shopping</option>
+                <option>Education</option>
+              </select>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <label for="filterFrom" class="ds-label">From</label>
+                <input type="date" class="form-control ds-input" id="filterFrom">
+              </div>
+              <div class="col-6">
+                <label for="filterTo" class="ds-label">To</label>
+                <input type="date" class="form-control ds-input" id="filterTo">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn ds-btn-neutral-tint" id="filterReset">Reset</button>
+            <button type="submit" class="btn ds-btn-primary">Apply</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/transaction-filter.js"></script>
+</body>
+</html>

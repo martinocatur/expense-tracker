@@ -1,0 +1,164 @@
+{
+  "screen_id": "budget_settings",
+  "screenshot_path": "screens/budget_settings.png",
+  "screen_name": "Settings > Budget Settings",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 705
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F8F8FB", "usage": "page background (very light lavender)" },
+      { "hex": "#D8DAE6", "usage": "'Enable Budgeting' hero card background (muted gray-lavender)" },
+      { "hex": "#FFFFFF", "usage": "date input, total budget input, category cards, top bar" }
+    ],
+    "text": [
+      { "hex": "#111827", "usage": "card title 'Enable Budgeting', input value '5.000.000', category names, button label" },
+      { "hex": "#4B5563", "usage": "card subtitle 'Track your spending limits', 'Rp' prefix, category amounts, 'Unallocated Budget:' label" },
+      { "hex": "#374151", "usage": "uppercase section labels 'BUDGET RESET DATE', 'TOTAL MONTHLY BUDGET', 'CATEGORY BUDGETS'" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "enabled toggle, 'Save Changes' primary button" }
+    ],
+    "border": [
+      { "hex": "#D1D5DB", "usage": "category card borders, dashed Add Category Budget border, top bar divider" },
+      { "hex": "#E5E7EB", "usage": "divider inside hero card, total budget input border" }
+    ],
+    "semantic": [
+      { "hex": "#15803D", "usage": "'Rp 1.500.000' unallocated budget value (success/green)" },
+      { "hex": "#DC2626", "usage": "trash icons on category cards (destructive)" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 36, "role": "top bar title 'Budget Settings' (semibold, image ~2x; ~18px at 1x)" },
+      { "px": 32, "role": "card title 'Enable Budgeting' (bold)" },
+      { "px": 28, "role": "card subtitle 'Track your spending limits', date input value" },
+      { "px": 26, "role": "uppercase section labels (semibold, letter-spaced)" },
+      { "px": 62, "role": "total budget amount '5.000.000' (bold)" },
+      { "px": 24, "role": "'Rp' prefix in amount input" },
+      { "px": 30, "role": "'Unallocated Budget:' label and green value" },
+      { "px": 32, "role": "category titles (bold), 'Add Category Budget' label" },
+      { "px": 28, "role": "category amounts 'Rp 1.500.000'" },
+      { "px": 32, "role": "'Save Changes' button label (semibold)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "card title, budget amount, category titles" },
+      { "weight": "600", "role": "top bar title, section labels, unallocated value, button label" },
+      { "weight": "400", "role": "subtitle, date input text, amounts, 'Unallocated Budget:' label" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 16, "usage": "hero card, total budget input, unallocated banner, category cards, Save button" },
+    { "px": 12, "usage": "date input inside hero card" },
+    { "px": 999, "usage": "toggle, category icon circles" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle diffuse shadow under category cards and buttons", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "back arrow (icon button)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (dark left arrow, top-left)"
+    },
+    {
+      "type": "toggle",
+      "variant": "switch (on)",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "active (blue track, white knob right — 'Enable Budgeting' on)"
+    },
+    {
+      "type": "input",
+      "variant": "date/select with trailing icon",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px 24px",
+        "border": "none (white fill on gray card)",
+        "shadow": "subtle",
+        "icon_present": true
+      },
+      "state_visible": "default ('BUDGET RESET DATE' label; value '15th of every month' with calendar icon right)"
+    },
+    {
+      "type": "input",
+      "variant": "large numeric amount with prefix",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 24px 32px",
+        "border": "1px solid #E5E7EB",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default ('TOTAL MONTHLY BUDGET' label above; 'Rp' prefix + bold '5.000.000')"
+    },
+    {
+      "type": "card",
+      "variant": "status summary banner",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 24px 32px",
+        "border": "1px solid #E5E7EB",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default ('Unallocated Budget:' left, green 'Rp 1.500.000' right — computed value display)"
+    },
+    {
+      "type": "card",
+      "variant": "category budget list item",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 24px 32px",
+        "border": "1px solid #D1D5DB",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (tinted circular icon; title bold + 'Rp 1.500.000'/'Rp 1.000.000' below; pencil edit icon and red trash icon right)"
+    },
+    {
+      "type": "button",
+      "variant": "dashed add/ghost",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 24px",
+        "border": "dashed 2px gray border (dashed-outline affordance)",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default ('+ Add Category Budget' centered, transparent background)"
+    },
+    {
+      "type": "button",
+      "variant": "primary",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px, full width",
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default ('Save Changes', pinned near bottom)"
+    }
+  ],
+  "content_patterns": "Master toggle with supporting subtitle ('Track your spending limits') gating the budgeting feature. Uppercase, letter-spaced section labels (BUDGET RESET DATE, TOTAL MONTHLY BUDGET, CATEGORY BUDGETS). Money formatted Indonesian-style with dot separators and 'Rp' prefix. Computed feedback in green ('Unallocated Budget: Rp 1.500.000'). Per-category rows show name + amount with inline edit (pencil) and delete (trash) actions. Dashed-outline '+ Add' affordance for list extension. Verb-first CTA: 'Save Changes'.",
+  "notable_interactions": "Toggle implies feature on/off switch that likely enables/disables the budget sections below. Date input with calendar icon implies a picker. Pencil icons imply inline editing of category budgets; trash icons imply deletion. Dashed 'Add Category Budget' implies opening an add flow. 'Save Changes' implies staged edits committed on tap. Back arrow implies return to Settings."
+}

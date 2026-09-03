@@ -1,0 +1,161 @@
+{
+  "screen_id": "add_expense_manually",
+  "screenshot_path": "screens/add_expense_manually.png",
+  "screen_name": "Expenses > Add Expense (manual entry form)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 720
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F6F6FB", "usage": "page background (very light lavender)" },
+      { "hex": "#FFFFFF", "usage": "form section cards, top bar, primary button" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand logo 'ExpenseTracker', 'Add Item' dashed button text/icon, form icon" },
+      { "hex": "#111827", "usage": "page title 'Add Expense', input values ('Rp 0', date, qty, price)" },
+      { "hex": "#4B5563", "usage": "subtitle 'Manual entry for un-scanned receipts.', uppercase field labels" },
+      { "hex": "#6B7280", "usage": "column headers 'NAME', 'QTY', 'PRICE' (gray)" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "primary 'Save Expense' button, 'Add Item' text/icon, dropdown checkmark" }
+    ],
+    "border": [
+      { "hex": "#9CA3AF", "usage": "input borders (slightly darker gray)" },
+      { "hex": "#2563EB", "usage": "dashed border of 'Add Item' button" },
+      { "hex": "#E5E7EB", "usage": "top bar divider, form card borders (subtle)" }
+    ],
+    "semantic": []
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 30, "role": "brand logo (bold, image ~2x; ~15px at 1x)" },
+      { "px": 34, "role": "page title 'Add Expense' (semibold)" },
+      { "px": 28, "role": "subtitle 'Manual entry for un-scanned receipts.'" },
+      { "px": 26, "role": "uppercase field labels 'EXPENSE TITLE (OPTIONAL)', 'AMOUNT (RP)', 'DATE', 'CATEGORY', 'ITEMS' (semibold, letter-spaced)" },
+      { "px": 30, "role": "input placeholder/value text ('e.g. Weekly Groceries', '01/09/2026', 'Item name')" },
+      { "px": 58, "role": "amount input 'Rp 0' (bold, large)" },
+      { "px": 22, "role": "column headers 'NAME', 'QTY', 'PRICE' (uppercase)" },
+      { "px": 30, "role": "numeric inputs '1', '0'" },
+      { "px": 32, "role": "'Additional Details' card header (semibold), 'Add Item' label" },
+      { "px": 30, "role": "'Save Expense' button label (semibold)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo, amount input text" },
+      { "weight": "600", "role": "page title, field labels, card header, 'Add Item' and 'Save Expense' labels" },
+      { "weight": "400", "role": "subtitle, input text, column headers" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "inputs, dashed Add Item button" },
+    { "px": 16, "usage": "form section cards, Save Expense button" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle diffuse shadow under form section cards and button", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "back arrow (icon button)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (dark left arrow, top-left)"
+    },
+    {
+      "type": "input",
+      "variant": "text",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #9CA3AF",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (label 'EXPENSE TITLE (OPTIONAL)', placeholder 'e.g. Weekly Groceries')"
+    },
+    {
+      "type": "input",
+      "variant": "numeric amount (large)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px",
+        "border": "1px solid #9CA3AF",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (label 'AMOUNT (RP)', value 'Rp 0' in large bold type)"
+    },
+    {
+      "type": "input",
+      "variant": "date with leading and trailing calendar icons",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #9CA3AF",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (label 'DATE', value '01/09/2026', calendar icons both sides)"
+    },
+    {
+      "type": "dropdown",
+      "variant": "select with leading icon and trailing check",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px",
+        "border": "1px solid #9CA3AF",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (label 'CATEGORY', shapes icon left, placeholder 'Select...', blue double-check right)"
+    },
+    {
+      "type": "card",
+      "variant": "form section (additional details / line items)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 32px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (header with blue form icon + 'Additional Details'; ITEMS sub-section with 3-column row: NAME text input, QTY numeric input '1', PRICE numeric input '0')"
+    },
+    {
+      "type": "button",
+      "variant": "dashed add/ghost",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px, full width within card",
+        "border": "dashed 1-2px blue border",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default ('+ Add Item' centered, transparent background, blue text/icon)"
+    },
+    {
+      "type": "button",
+      "variant": "primary",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px, full width",
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default ('Save Expense' with save/floppy icon, pinned near bottom)"
+    }
+  ],
+  "content_patterns": "Sectioned form: each field group wrapped in its own white card with uppercase, letter-spaced labels. Explicit '(OPTIONAL)' annotation. Placeholder uses concrete examples ('e.g. Weekly Groceries'). Currency embedded in label ('AMOUNT (RP)') and value. Line-item entry as a 3-column mini-table (NAME / QTY / PRICE) with a dashed '+ Add Item' repeater. Explanatory subtitle: 'Manual entry for un-scanned receipts.' Verb-first CTA with icon: 'Save Expense'.",
+  "notable_interactions": "Date field with dual calendar icons implies a date picker. Category dropdown with checkmark implies selectable list (likely bottom-sheet/dropdown). '+ Add Item' dashed button implies repeatable line-item rows for itemized entry. Large 'Rp 0' amount implies numeric keypad-style entry. 'Save Expense' implies form submission. Back arrow implies cancel/return. Amount field styling matches other amount inputs in the app for consistency."
+}

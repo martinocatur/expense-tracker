@@ -1,0 +1,152 @@
+{
+  "screen_id": "expense_result",
+  "screenshot_path": "screens/expense_result.png",
+  "screen_name": "Scan Receipt > Expense Result (saved expense detail)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 720
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F6F6FA", "usage": "page background (very light lavender)" },
+      { "hex": "#D6D9E4", "usage": "TOTAL AMOUNT hero card background (muted gray-lavender)" },
+      { "hex": "#FFFFFF", "usage": "detail card background, top bar" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand logo 'ExpenseTracker', category badge icon and checkmark-adjacent accents" },
+      { "hex": "#111827", "usage": "'Expense Saved' heading, date, detail values ('Example Store'), item names, item amounts" },
+      { "hex": "#4B5563", "usage": "detail row labels ('Merchant', 'Category', 'Items'), 'TOTAL AMOUNT' label" },
+      { "hex": "#6B7280", "usage": "date subtitle '14 Aug 2026'" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "logo, category badge icon/label tint" }
+    ],
+    "border": [
+      { "hex": "#E5E7EB", "usage": "detail card border, row dividers within card, top bar divider" }
+    ],
+    "semantic": [
+      { "hex": "#15803D", "usage": "success checkmark in green circle (expense saved confirmation)" },
+      { "hex": "#DC2626", "usage": "total amount 'Rp 350.000' in red (large expense highlight), Delete button text/icon" },
+      { "hex": "#FEE2E2", "usage": "Delete button background (light red)" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 30, "role": "brand logo (bold, image ~2x; ~15px at 1x)" },
+      { "px": 36, "role": "'Expense Saved' heading (regular/medium)" },
+      { "px": 30, "role": "date subtitle '14 Aug 2026'" },
+      { "px": 26, "role": "'TOTAL AMOUNT' label (uppercase, letter-spaced, semibold)" },
+      { "px": 62, "role": "total amount 'Rp 350.000' (bold, red)" },
+      { "px": 30, "role": "detail row labels and values ('Merchant', 'Example Store')" },
+      { "px": 28, "role": "category badge text 'Konsumsi' (semibold), 'Items' sub-header (bold)" },
+      { "px": 28, "role": "item names, item amounts (semibold)" },
+      { "px": 30, "role": "Edit/Delete button labels" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo, total amount, item amounts, 'Items' sub-header, button labels" },
+      { "weight": "600", "role": "'TOTAL AMOUNT' label, category badge text" },
+      { "weight": "400", "role": "heading, date, row labels, item names" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 16, "usage": "TOTAL AMOUNT hero card, Edit/Delete buttons" },
+    { "px": 12, "usage": "detail card" },
+    { "px": 999, "usage": "success checkmark circle, category badge pill, top bar avatar circle" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle diffuse shadow under hero card, detail card, and buttons", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "top bar (back arrow, notification bell, avatar icon)",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (dark back arrow left; blue bell and gray person-icon circle right)"
+    },
+    {
+      "type": "other",
+      "variant": "success indicator (checkmark circle)",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "success (green circle with white check inside larger light-gray circle, centered)"
+    },
+    {
+      "type": "card",
+      "variant": "amount hero card",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 32px",
+        "border": "none",
+        "shadow": "very subtle",
+        "icon_present": false
+      },
+      "state_visible": "default (gray-lavender card: uppercase 'TOTAL AMOUNT' label + large red bold amount)"
+    },
+    {
+      "type": "card",
+      "variant": "detail list card",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px per row",
+        "border": "1px solid #E5E7EB, with full-width dividers between rows",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (Merchant row with storefront icon; Category row with shapes icon + light-blue badge 'Konsumsi'; Items section: sub-header + line-item rows 'Indomie', 'Milk', 'Vegetables', 'Other' each with right-aligned bold amounts)"
+    },
+    {
+      "type": "badge",
+      "variant": "category chip (tinted pill)",
+      "properties": {
+        "radius_px": 999,
+        "padding": "approx 8px 20px",
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (light blue pill with blue food icon + 'Konsumsi' text)"
+    },
+    {
+      "type": "button",
+      "variant": "secondary (neutral outline/tint)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px, half width",
+        "border": "none (light gray-lavender fill)",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default ('Edit' with pencil icon, dark text on light gray fill, left)"
+    },
+    {
+      "type": "button",
+      "variant": "destructive (tinted)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px, half width",
+        "border": "none (light red fill)",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default ('Delete' with trash icon, dark red text on light red fill, right)"
+    }
+  ],
+  "content_patterns": "Success confirmation pattern: green check circle + plain statement 'Expense Saved' + date. Receipt-derived data presented as labeled key-value rows; embedded line-item breakdown with right-aligned bold amounts ('Indomie Rp 30.000', 'Milk Rp 50.000', 'Vegetables Rp 120.000', 'Other Rp 150.000'). Localized category label ('Konsumsi'). Money formatted Indonesian-style with dot separators and 'Rp' prefix. Paired bottom actions: neutral 'Edit' vs destructive tinted 'Delete', icon + label each.",
+  "notable_interactions": "Green check implies just-completed save from OCR flow; no further processing UI. Merchant/Category rows imply tappable editing (no chevrons visible, but paired Edit button covers it). Edit/Delete split-button footer implies record management. Back arrow implies return to previous screen (likely expenses list). Total amount rendered in red draws attention to the expense size; not necessarily an error state."
+}

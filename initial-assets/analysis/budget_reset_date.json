@@ -1,0 +1,121 @@
+{
+  "screen_id": "budget_reset_date",
+  "screenshot_path": "screens/budget_reset_date.png",
+  "screen_name": "Onboarding > Budget Setup (Step 1 of 3) — budget reset date selection",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": 2,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 705
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F8F8FB", "usage": "page background (very light lavender)" },
+      { "hex": "#D6D8E4", "usage": "unselected option card background (muted gray-lavender), top bar" }
+    ],
+    "text": [
+      { "hex": "#111827", "usage": "option primary labels ('1st', '15th', 'Last Day'), question heading" },
+      { "hex": "#4B5563", "usage": "option secondary labels ('Start of month', 'Mid-month', 'End of month'), descriptive paragraph" },
+      { "hex": "#1B5BE0", "usage": "'STEP 1 OF 3' label, 'Custom' option text and icon, top bar title" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "step progress bar (filled ~1/3), step number circle, Custom selected card border/text/icon" }
+    ],
+    "border": [
+      { "hex": "#1B5BE0", "usage": "selected option card border (blue)" },
+      { "hex": "#D1D5DB", "usage": "unselected option card borders" },
+      { "hex": "#E5E7EB", "usage": "top bar divider, unfilled progress bar track" }
+    ],
+    "semantic": []
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 32, "role": "top bar title 'Budget Setup' (bold, image ~2x; ~16px at 1x)" },
+      { "px": 26, "role": "'STEP 1 OF 3' label (uppercase, letter-spaced, semibold)" },
+      { "px": 36, "role": "question heading 'When does your budget reset?'" },
+      { "px": 32, "role": "descriptive paragraph (3 lines)" },
+      { "px": 34, "role": "option primary labels '1st', '15th', 'Last Day' (semibold)" },
+      { "px": 30, "role": "option secondary labels 'Start of month', 'Mid-month', 'End of month'" },
+      { "px": 34, "role": "'Custom' option label (semibold, blue)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "top bar title, 'STEP 1 OF 3'" },
+      { "weight": "600", "role": "option primary labels, 'Custom' label" },
+      { "weight": "400", "role": "heading, paragraph, option secondary labels" }
+    ],
+    "line_height_notes": "normal; paragraph wraps at ~1.4 leading"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "option cards" },
+    { "px": 999, "usage": "step indicator circle, progress bar" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle diffuse shadow under option cards", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "back arrow (icon button)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (dark left arrow, top-left)"
+    },
+    {
+      "type": "other",
+      "variant": "wizard progress bar",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "active (blue fill ~1/3 width on light gray track, indicating step 1 of 3)"
+    },
+    {
+      "type": "other",
+      "variant": "step indicator (circle + label)",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "active (solid blue circle left of 'STEP 1 OF 3' + question heading)"
+    },
+    {
+      "type": "card",
+      "variant": "selectable option tile - unselected",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 32px, full tile centered content",
+        "border": "1px solid #D1D5DB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": false
+      },
+      "state_visible": "default ('1st / Start of month', '15th / Mid-month', 'Last Day / End of month' — gray-lavender fill, centered two-line label)"
+    },
+    {
+      "type": "card",
+      "variant": "selectable option tile - selected (custom)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 32px, full tile centered content",
+        "border": "1-2px solid #1B5BE0",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "active ('Custom' with calendar-pencil icon above label; light blue tinted background and blue border)"
+    }
+  ],
+  "content_patterns": "Wizard pattern: thin progress bar + 'STEP N OF 3' label + step-number circle. Question-form heading ('When does your budget reset?') followed by an explanatory paragraph in plain language ('Select the day your income usually arrives. Your spending period will run until the day before this date every month.'). Preset choice tiles ('1st', '15th', 'Last Day') each with a human-readable descriptor, plus an escape-hatch 'Custom' tile with icon implying further input. No visible CTA button in this frame.",
+  "notable_interactions": "2-column tile grid of mutually exclusive choices; selected state shown via blue border + light blue fill + icon (Custom), implying a custom date picker opens when chosen. Progress bar implies multi-step onboarding with 3 steps. Back arrow implies previous screen. Absence of a visible Continue button may imply auto-advance on selection or an off-frame CTA."
+}

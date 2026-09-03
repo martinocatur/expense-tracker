@@ -1,0 +1,151 @@
+{
+  "screen_id": "general_budget_setup_expanded",
+  "screenshot_path": "screens/general_budget_setup_expanded.png",
+  "screen_name": "Onboarding > Budget Setup (Step 1 of 3, with category budgets expanded)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 705
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F8F8FB", "usage": "page background (very light lavender)" },
+      { "hex": "#D6D8E4", "usage": "monthly total budget card background (muted gray-lavender with subtle gradient)" },
+      { "hex": "#FFFFFF", "usage": "category budget cards, top bar" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand logo 'ExpenseTracker', budget amount input value '5.000.000'" },
+      { "hex": "#111827", "usage": "page heading, category card titles ('Food & Dining', 'Education'), 'Add Category Budget' label" },
+      { "hex": "#4B5563", "usage": "page subtitle, 'Rp' currency prefix, category amounts, helper text at bottom" },
+      { "hex": "#6B7280", "usage": "top bar 'STEP 1 OF 3', card hint with info icon, uppercase section label" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "budget amount, active input underline, Continue button, Education icon tint" }
+    ],
+    "border": [
+      { "hex": "#E5E7EB", "usage": "category card borders, top bar divider, inactive portion of input underline" },
+      { "hex": "#1B5BE0", "usage": "active input underline (blue segment under 'Rp 5.000.000')" }
+    ],
+    "semantic": [
+      { "hex": "#DC2626", "usage": "delete/trash icons on category cards (destructive)" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 30, "role": "brand logo (bold, image ~2x; ~15px at 1x)" },
+      { "px": 24, "role": "top bar 'STEP 1 OF 3' (uppercase, letter-spaced, semibold)" },
+      { "px": 34, "role": "page heading 'Set Your Monthly Budget' (regular/medium)" },
+      { "px": 28, "role": "page subtitle (2 lines, centered)" },
+      { "px": 24, "role": "'MONTHLY TOTAL BUDGET' label (uppercase, letter-spaced, semibold)" },
+      { "px": 72, "role": "budget amount '5.000.000' (bold, large input text)" },
+      { "px": 28, "role": "'Rp' prefix, card hint 'You can adjust this later in settings.', category titles (bold), amounts, 'Add Category Budget'" },
+      { "px": 26, "role": "uppercase section label 'CATEGORY BUDGETS (OPTIONAL)' (semibold, letter-spaced)" },
+      { "px": 30, "role": "bottom helper text (2 lines), 'Continue' button label" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo, budget amount, category titles, Continue label" },
+      { "weight": "600", "role": "'STEP 1 OF 3', 'MONTHLY TOTAL BUDGET', 'CATEGORY BUDGETS (OPTIONAL)' labels" },
+      { "weight": "400", "role": "heading, subtitle, hints, amounts, helper text" }
+    ],
+    "line_height_notes": "normal; subtitle and helper text wrap at ~1.4 leading"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 16, "usage": "monthly total budget card, Continue button" },
+    { "px": 12, "usage": "category budget cards, Add Category Budget card" },
+    { "px": 999, "usage": "category icon circles, plus icon circle" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle diffuse shadow under category cards and budget card", "usage": "card elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "back arrow (icon button)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (dark left arrow, top-left)"
+    },
+    {
+      "type": "other",
+      "variant": "step indicator (text)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default ('STEP 1 OF 3', uppercase, top-right)"
+    },
+    {
+      "type": "input",
+      "variant": "large numeric amount with prefix",
+      "properties": {
+        "radius_px": 0,
+        "padding": "approx 24px horizontal, inside gray card",
+        "border": "underline only: blue active segment under amount, gray inactive segment to the right",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "focus/active ('Rp' prefix + bold '5.000.000' with blue underline segment)"
+    },
+    {
+      "type": "card",
+      "variant": "budget hero card",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 32px",
+        "border": "none",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default (gray-lavender gradient card containing label, big amount input, and info-icon hint)"
+    },
+    {
+      "type": "card",
+      "variant": "category budget list item",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (tinted circular icon; title bold + 'Rp 1.500.000'/'Rp 1.000.000' below; red trash icon right for delete)"
+    },
+    {
+      "type": "card",
+      "variant": "add item card (dashed-affordance style, solid border)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle",
+        "icon_present": true
+      },
+      "state_visible": "default ('Add Category Budget' with gray plus-circle icon and right chevron)"
+    },
+    {
+      "type": "button",
+      "variant": "primary",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px, full width",
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default ('Continue' with right arrow icon, pinned near bottom)"
+    }
+  ],
+  "content_patterns": "Wizard framing: 'STEP 1 OF 3' uppercase counter, centered instruction heading, and reassuring subtitle. Big-typography numeric input for the core value. Explicit '(OPTIONAL)' annotation on the category section. Per-item destructive affordances (red trash icons). Verb-first CTA 'Continue' with forward arrow. Helper copy explains purpose: 'Allocate your total budget into specific categories like Food, Transport, or Rent.' Reassurance microcopy with info icon: 'You can adjust this later in settings.'",
+  "notable_interactions": "Blue underline segment implies the amount field is focused/editable (large numeric keypad entry implied). Trash icons imply removing category budgets. 'Add Category Budget' row with chevron implies opening a picker/form to add more. 'Continue' implies advancing to step 2 of the wizard. Back arrow implies exiting onboarding step. State matches an expanded/with-categories variant of budget setup."
+}

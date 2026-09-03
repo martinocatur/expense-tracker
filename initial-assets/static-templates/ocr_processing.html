@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Processing Receipt · ExpenseTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/design-system.css" rel="stylesheet">
+</head>
+<body>
+  <main class="ds-shell">
+    <div class="ds-content d-flex flex-column justify-content-center align-items-center" style="min-height:100dvh;">
+      <div class="ds-illustration-receipt" aria-hidden="true">
+        <div class="top"></div>
+        <div class="dot"></div>
+      </div>
+
+      <h1 class="fs-3 fw-bold mt-5 mb-3">Reading your receipt...</h1>
+      <p class="ds-subtitle mb-4">Extracting amounts and merchant info</p>
+
+      <div class="ds-progress ds-progress-thin w-75 mt-3" role="progressbar" aria-label="Processing receipt">
+        <div class="ds-progress-bar" style="width:8%;"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

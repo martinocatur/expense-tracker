@@ -1,0 +1,106 @@
+{
+  "screen_id": "tracking_preference",
+  "screenshot_path": "screens/tracking_preference.png",
+  "screen_name": "Onboarding > Tracking Preference (choose expense tracking mode)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 785
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F8F8FB", "usage": "page background (very light lavender-tinted off-white)" },
+      { "hex": "#FFFFFF", "usage": "option card backgrounds, top bar" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand/logo heading 'ExpenseTracker'" },
+      { "hex": "#111827", "usage": "page heading and card titles" },
+      { "hex": "#6B7280", "usage": "subtitle 'You can change this later in settings.' and card body descriptions" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "selected card border, check badge, selected icon circle fill, back arrow, logo" }
+    ],
+    "border": [
+      { "hex": "#2563EB", "usage": "selected card 2-3px border" },
+      { "hex": "#D1D5DB", "usage": "unselected card 1px border" },
+      { "hex": "#E5E7EB", "usage": "top bar bottom divider" }
+    ],
+    "semantic": []
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 34, "role": "brand/logo heading (bold, image ~2x; ~17px at 1x)" },
+      { "px": 28, "role": "page heading (regular/medium weight)" },
+      { "px": 28, "role": "subtitle" },
+      { "px": 28, "role": "card titles" },
+      { "px": 26, "role": "card body description text" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo" },
+      { "weight": "400", "role": "page heading, subtitle, card titles, body text" }
+    ],
+    "line_height_notes": "normal; card body descriptions wrap with comfortable (~1.4) leading"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "option cards" },
+    { "px": 999, "usage": "icon circles and selection check badge" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle, diffuse drop shadow under cards (more visible on selected card)", "usage": "card elevation / selection emphasis" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "back arrow (icon button)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (left-pointing arrow in top bar)"
+    },
+    {
+      "type": "card",
+      "variant": "selectable option card - selected",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 32px 32px",
+        "border": "2-3px solid blue (#2563EB), indicating selection",
+        "shadow": "subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "active/selected ('Expense Only' with blue filled icon circle and blue circular check badge top-right)"
+    },
+    {
+      "type": "card",
+      "variant": "selectable option card - unselected",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 32px 32px",
+        "border": "1px solid #D1D5DB",
+        "shadow": "very subtle or none",
+        "icon_present": true
+      },
+      "state_visible": "default ('Expense + Budgeting' with light gray-blue circular icon background, no check badge)"
+    },
+    {
+      "type": "other",
+      "variant": "top app bar",
+      "properties": {
+        "radius_px": null,
+        "padding": "approx 16px vertical",
+        "border": "1px bottom divider (#E5E7EB)",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default (back arrow left, centered logo)"
+    }
+  ],
+  "content_patterns": "Question-form heading ('How do you want to track your expenses?') with reassuring subtitle ('You can change this later in settings.'). Two mutually-exclusive choice cards each with title + one-to-two-sentence plain-language description. Friendly, jargon-free tone ('Just log what you spend', 'manage your financial health'). Selection conveyed via check badge rather than a separate confirm button visible on screen.",
+  "notable_interactions": "Cards are tappable single-select options: selected state shows blue border, filled blue icon circle, and circular check badge top-right; unselected card shows gray border without badge. Subtitle implies the choice is reversible via Settings. Back arrow implies navigation to previous onboarding step. No visible Continue/Next button in this frame."
+}

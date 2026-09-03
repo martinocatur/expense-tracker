@@ -1,0 +1,145 @@
+{
+  "screen_id": "register",
+  "screenshot_path": "screens/register.png",
+  "screen_name": "Register / Sign Up",
+  "layout": {
+    "structure": "single-column",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 720
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F4F4FA", "usage": "page background (very light lavender-tinted off-white)" },
+      { "hex": "#FFFFFF", "usage": "form card background, input backgrounds" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "brand/logo heading 'ExpenseTracker'" },
+      { "hex": "#4B5563", "usage": "subtitle and legal footer body text (slate gray)" },
+      { "hex": "#374151", "usage": "uppercase field labels, 'OR' divider label" },
+      { "hex": "#111827", "usage": "input value text (e.g. 'John Doe')" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "primary button background, logo text" }
+    ],
+    "border": [
+      { "hex": "#D1D5DB", "usage": "input borders, secondary button border" },
+      { "hex": "#E5E7EB", "usage": "OR divider horizontal rules" }
+    ],
+    "semantic": []
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 44, "role": "brand/logo heading (bold, image is ~2x; ~22px at 1x)" },
+      { "px": 26, "role": "subtitle and legal footer body (centered)" },
+      { "px": 18, "role": "uppercase field labels (letter-spaced, bold)" },
+      { "px": 28, "role": "input value text" },
+      { "px": 30, "role": "primary button label (bold)" },
+      { "px": 28, "role": "secondary button label" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "logo, primary button label, uppercase field labels, 'OR' label" },
+      { "weight": "400", "role": "subtitle, input text, secondary button label, legal footer" }
+    ],
+    "line_height_notes": "normal; subtitle wraps with comfortable (~1.4) leading"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "text inputs" },
+    { "px": 16, "usage": "primary and secondary buttons" },
+    { "px": 24, "usage": "form card container" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle, diffuse drop shadow under the white form card", "usage": "card elevation" },
+    { "description": "light blue gradient strip along bottom edge of the card", "usage": "decorative card accent" }
+  ],
+  "components": [
+    {
+      "type": "input",
+      "variant": "text",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (filled: 'John Doe')"
+    },
+    {
+      "type": "input",
+      "variant": "text",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (placeholder: 'name@company.com')"
+    },
+    {
+      "type": "input",
+      "variant": "password",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 20px 24px",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (masked dots)"
+    },
+    {
+      "type": "button",
+      "variant": "primary",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px, full width",
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default ('Create Account')"
+    },
+    {
+      "type": "button",
+      "variant": "secondary/outline (OAuth)",
+      "properties": {
+        "radius_px": 16,
+        "padding": "approx 20px 24px, full width",
+        "border": "1px solid #D1D5DB",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default ('Continue with Google' with Google 'G' logo)"
+    },
+    {
+      "type": "card",
+      "variant": "form container",
+      "properties": {
+        "radius_px": 24,
+        "padding": "approx 48px horizontal, 48px vertical",
+        "border": "none",
+        "shadow": "subtle diffuse drop shadow; light blue gradient strip at bottom edge",
+        "icon_present": false
+      },
+      "state_visible": "default"
+    },
+    {
+      "type": "other",
+      "variant": "divider with centered label",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "thin horizontal rules flanking centered 'OR' label",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default"
+    }
+  ],
+  "content_patterns": "Uppercase, letter-spaced field labels in sentence-word form (FULL NAME, EMAIL ADDRESS, PASSWORD). Friendly, benefit-oriented subtitle: 'Create your account to start managing your finances.' Action verbs on buttons: 'Create Account', 'Continue with Google'. Legal microcopy with linked Terms of Service and Privacy Policy: 'By continuing, you agree to our Terms of Service and Privacy Policy.'",
+  "notable_interactions": "Password field masks input as dots, implying hidden-text entry. 'OR' divider implies alternative auth path via the Google OAuth button. Legal footer links (Terms of Service, Privacy Policy) imply navigation. No visible error states, toggles, or modals in this screenshot."
+}

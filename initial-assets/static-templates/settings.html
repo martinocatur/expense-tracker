@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings · ExpenseTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/design-system.css" rel="stylesheet">
+</head>
+<body>
+  <main class="ds-shell">
+    <header class="ds-topbar">
+      <a href="profile_settings.html" class="ds-icon-btn"><i class="bi bi-person-circle fs-4" style="color:var(--ds-brand-primary);"></i></a>
+      <span class="ds-topbar-title ds-topbar-title-accent fs-4">Settings</span>
+      <a href="#" class="ds-icon-btn" aria-label="Notifications"><i class="bi bi-bell fs-4" style="color:var(--ds-brand-primary);"></i></a>
+    </header>
+
+    <div class="ds-content">
+      <!-- Account -->
+      <span class="ds-label ds-label-muted" style="font-size:0.85rem;">Account</span>
+      <section class="ds-card mt-2 mb-4">
+        <a href="profile_settings.html" class="ds-row">
+          <span class="ds-avatar ds-avatar-solid">JD</span>
+          <div>
+            <div class="fw-bold fs-4">Jane Doe</div>
+            <div class="ds-row-value">jane.doe@example.com</div>
+          </div>
+          <i class="bi bi-chevron-right ms-auto fs-5 ds-row-value"></i>
+        </a>
+        <a href="#" class="ds-row">
+          <i class="bi bi-shield-fill-check fs-4" style="color:var(--ds-brand-primary);"></i>
+          <span class="ds-row-title fs-4">Account &amp; Security</span>
+          <i class="bi bi-chevron-right ms-auto fs-5 ds-row-value"></i>
+        </a>
+      </section>
+
+      <!-- Preferences -->
+      <span class="ds-label ds-label-muted" style="font-size:0.85rem;">Preferences</span>
+      <section class="ds-card mt-2 mb-4">
+        <a href="budget_settings.html" class="ds-row">
+          <i class="bi bi-pie-chart fs-4" style="color:var(--ds-brand-primary);"></i>
+          <span class="ds-row-title fs-4">Budget Settings</span>
+          <span class="ms-auto ds-row-value" style="color:var(--ds-success);">Active</span>
+          <i class="bi bi-chevron-right fs-5 ds-row-value"></i>
+        </a>
+        <a href="categories_management.html" class="ds-row">
+          <i class="bi bi-boxes fs-5" style="color:var(--ds-brand-primary);"></i>
+          <span class="ds-row-title fs-4">Categories</span>
+          <i class="bi bi-chevron-right ms-auto fs-5 ds-row-value"></i>
+        </a>
+        <a href="#" class="ds-row">
+          <i class="bi bi-cash-stack fs-4" style="color:var(--ds-brand-primary);"></i>
+          <span class="ds-row-title fs-4">Currency</span>
+          <span class="ms-auto ds-row-value fs-5">IDR - Rp</span>
+          <i class="bi bi-chevron-right fs-5 ds-row-value"></i>
+        </a>
+        <a href="#" class="ds-row">
+          <i class="bi bi-bell fs-4" style="color:var(--ds-brand-primary);"></i>
+          <span class="ds-row-title fs-4">Notifications</span>
+          <i class="bi bi-chevron-right ms-auto fs-5 ds-row-value"></i>
+        </a>
+      </section>
+
+      <!-- Data & support -->
+      <span class="ds-label ds-label-muted" style="font-size:0.85rem;">Data &amp; Support</span>
+      <section class="ds-card mt-2 mb-2">
+        <a href="#" class="ds-row">
+          <i class="bi bi-download fs-4" style="color:var(--ds-brand-primary);"></i>
+          <span class="ds-row-title fs-4">Export Expenses</span>
+          <i class="bi bi-chevron-right ms-auto fs-5 ds-row-value"></i>
+        </a>
+        <a href="#" class="ds-row">
+          <i class="bi bi-question-circle fs-4" style="color:var(--ds-brand-primary);"></i>
+          <span class="ds-row-title fs-4">Help &amp; Support</span>
+          <i class="bi bi-chevron-right ms-auto fs-5 ds-row-value"></i>
+        </a>
+        <a href="#" class="ds-row">
+          <i class="bi bi-trash fs-4" style="color:var(--ds-error);"></i>
+          <span class="ds-row-title fs-4">Delete Account</span>
+          <i class="bi bi-chevron-right ms-auto fs-5 ds-row-value"></i>
+        </a>
+      </section>
+    </div>
+
+    <!-- Bottom navigation with raised Scan action -->
+    <nav class="ds-bottomnav">
+      <div class="d-flex justify-content-around align-items-end pb-2">
+        <a href="home.html" class="ds-nav-item">
+          <i class="bi bi-house-door"></i>
+          <span>Home</span>
+        </a>
+        <a href="main_expenses_page.html" class="ds-nav-item">
+          <i class="bi bi-wallet2"></i>
+          <span>Expenses</span>
+        </a>
+        <a href="scan_receipt_camera.html" class="ds-nav-item" style="margin-top:-2.6rem;">
+          <span class="ds-nav-scan"><i class="bi bi-camera"></i></span>
+          <span>Scan</span>
+        </a>
+        <a href="settings.html" class="ds-nav-item">
+          <span class="ds-nav-pill d-flex flex-column align-items-center px-3 py-2">
+            <i class="bi bi-gear-fill"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

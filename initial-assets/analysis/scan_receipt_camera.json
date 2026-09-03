@@ -1,0 +1,134 @@
+{
+  "screen_id": "scan_receipt_camera",
+  "screenshot_path": "screens/scan_receipt_camera.png",
+  "screen_name": "Scan Receipt > Camera Capture",
+  "layout": {
+    "structure": "single-column",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 705
+  },
+  "colors": {
+    "background": [
+      { "hex": "#1F2937", "usage": "camera viewport background (dark, blurred live preview); dark scrim regions" }
+    ],
+    "text": [
+      { "hex": "#FFFFFF", "usage": "instruction pill text, 'AUTO' button label, icon glyphs on dark controls" }
+    ],
+    "accent": [
+      { "hex": "#2563EB", "usage": "detection frame corner brackets (blue)", "note": "top corners appear a lighter blue (#3B82F6-like), bottom corners a deeper blue" }
+    ],
+    "border": [
+      { "hex": "#9CA3AF", "usage": "scan frame thin gray outline connecting corner marks" }
+    ],
+    "semantic": []
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, system-ui-like)"],
+    "sizes_observed": [
+      { "px": 34, "role": "instruction pill text 'Align receipt within the frame' (bold, image ~2x; ~17px at 1x)" },
+      { "px": 26, "role": "'AUTO' mode button label (bold)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "instruction pill text, 'AUTO' label" }
+    ],
+    "line_height_notes": "tight (single-line labels only on this screen)"
+  },
+  "spacing_scale_observed": [16, 24, 48],
+  "corner_radius_observed": [
+    { "px": 999, "usage": "circular icon buttons (close, flash, shutter, AUTO), shutter ring" },
+    { "px": 24, "usage": "instruction pill, thumbnail preview" },
+    { "px": 8, "usage": "scan/detection frame corners (rounded rect with corner accent marks)" }
+  ],
+  "shadows_observed": [
+    { "description": "soft shadows on floating circular controls against camera feed", "usage": "control legibility/elevation over live video" }
+  ],
+  "components": [
+    {
+      "type": "button",
+      "variant": "ghost/circular icon button (close)",
+      "properties": {
+        "radius_px": 999,
+        "padding": "approx 16px",
+        "border": "none",
+        "shadow": "soft drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (translucent dark circle with white 'X', top-left)"
+    },
+    {
+      "type": "button",
+      "variant": "ghost/circular icon button (flash toggle)",
+      "properties": {
+        "radius_px": 999,
+        "padding": "approx 16px",
+        "border": "none",
+        "shadow": "soft drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (translucent dark circle with white flash icon, top-right)"
+    },
+    {
+      "type": "other",
+      "variant": "instruction pill/toast",
+      "properties": {
+        "radius_px": 24,
+        "padding": "approx 16px 32px",
+        "border": "none",
+        "shadow": "subtle",
+        "icon_present": false
+      },
+      "state_visible": "default (translucent dark pill, centered, white bold text)"
+    },
+    {
+      "type": "other",
+      "variant": "document detection frame overlay",
+      "properties": {
+        "radius_px": 8,
+        "padding": null,
+        "border": "thin gray rounded-rect outline with blue corner accent marks (thicker, glowing)",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "active (live camera view of receipt inside; faint grid texture visible in overlay)"
+    },
+    {
+      "type": "button",
+      "variant": "primary capture (shutter)",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "thick white ring (~8px) around solid white inner circle",
+        "shadow": "soft",
+        "icon_present": false
+      },
+      "state_visible": "default (large centered capture button, ~90px inner circle)"
+    },
+    {
+      "type": "other",
+      "variant": "thumbnail preview (last capture / gallery)",
+      "properties": {
+        "radius_px": 8,
+        "padding": null,
+        "border": "thin light border around small image thumbnail",
+        "shadow": "subtle",
+        "icon_present": false
+      },
+      "state_visible": "default (small square thumbnail of a prior receipt scan, bottom-left; appears to have a tiny header label)"
+    },
+    {
+      "type": "button",
+      "variant": "circular mode toggle (AUTO)",
+      "properties": {
+        "radius_px": 999,
+        "padding": "approx 16px",
+        "border": "none",
+        "shadow": "soft drop shadow",
+        "icon_present": false
+      },
+      "state_visible": "default (translucent dark circle, white 'AUTO' label, bottom-right)"
+    }
+  ],
+  "content_patterns": "Imperative, task-focused microcopy: 'Align receipt within the frame'. Icon-led chrome (close, flash) with no other UI text; camera UI conventions throughout (shutter, thumbnail, AUTO mode). Minimal screen — controls only, no nav or headers.",
+  "notable_interactions": "Full-screen camera view with document-scan overlay: blue corner brackets imply live edge detection of the receipt. X button implies dismiss/exit; flash icon implies torch toggle; 'AUTO' circle implies capture-mode cycling; large white shutter implies take-photo; bottom-left thumbnail implies access to previous captures/gallery. Faint grid in overlay suggests scanning/detection assist."
+}

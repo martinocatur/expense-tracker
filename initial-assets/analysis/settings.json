@@ -1,0 +1,132 @@
+{
+  "screen_id": "settings",
+  "screenshot_path": "screens/settings.png",
+  "screen_name": "Settings (root)",
+  "layout": {
+    "structure": "top-nav+content",
+    "grid_columns": null,
+    "breakpoint_hint": "mobile",
+    "max_content_width_px": 785
+  },
+  "colors": {
+    "background": [
+      { "hex": "#F4F2FA", "usage": "page background (very light lavender)" },
+      { "hex": "#FFFFFF", "usage": "list group card backgrounds, top bar" }
+    ],
+    "text": [
+      { "hex": "#1B5BE0", "usage": "top bar title 'Settings'" },
+      { "hex": "#111827", "usage": "list item labels, profile name 'Jane Doe'" },
+      { "hex": "#6B7280", "usage": "profile email, section headers (ACCOUNT, PREFERENCES, DATA & SUPPORT), 'IDR - Rp' value" }
+    ],
+    "accent": [
+      { "hex": "#1B5BE0", "usage": "icons, avatar fill, active bottom-nav pill, top bar icons" }
+    ],
+    "border": [
+      { "hex": "#E5E7EB", "usage": "card borders, row dividers within cards, top bar bottom divider" }
+    ],
+    "semantic": [
+      { "hex": "#16A34A", "usage": "'Active' status text in Budget Settings row (success/active state)" },
+      { "hex": "#DC2626", "usage": "partially visible red icon on last Data & Support row (likely destructive/delete action)" }
+    ]
+  },
+  "typography": {
+    "families_observed": ["sans-serif (unidentified, Inter/system-ui-like)"],
+    "sizes_observed": [
+      { "px": 34, "role": "top bar title 'Settings' (bold, image ~2x; ~17px at 1x)" },
+      { "px": 26, "role": "section headers (uppercase, letter-spaced, bold)" },
+      { "px": 40, "role": "profile name 'Jane Doe' (bold)" },
+      { "px": 28, "role": "profile email, list item labels, value texts ('Active', 'IDR - Rp'), bottom-nav labels" },
+      { "px": 26, "role": "bottom-nav active label 'Settings' (bold)" }
+    ],
+    "weights_observed": [
+      { "weight": "700", "role": "top bar title, section headers, profile name, active bottom-nav label" },
+      { "weight": "400", "role": "email, list item labels, value texts, inactive nav labels" }
+    ],
+    "line_height_notes": "normal"
+  },
+  "spacing_scale_observed": [8, 16, 24, 32, 48],
+  "corner_radius_observed": [
+    { "px": 12, "usage": "list group cards, active bottom-nav pill" },
+    { "px": 999, "usage": "avatar, Scan camera button circle" }
+  ],
+  "shadows_observed": [
+    { "description": "very subtle, diffuse drop shadow under cards", "usage": "card elevation" },
+    { "description": "soft shadow around elevated Scan button circle", "usage": "floating center action button elevation" }
+  ],
+  "components": [
+    {
+      "type": "nav-item",
+      "variant": "top bar icon buttons (avatar, notification bell)",
+      "properties": {
+        "radius_px": null,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": true
+      },
+      "state_visible": "default"
+    },
+    {
+      "type": "avatar",
+      "variant": "initials avatar",
+      "properties": {
+        "radius_px": 999,
+        "padding": null,
+        "border": "none",
+        "shadow": null,
+        "icon_present": false
+      },
+      "state_visible": "default (blue circle with white 'JD' initials)"
+    },
+    {
+      "type": "card",
+      "variant": "settings list group (profile)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px per row",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (profile row with name/email + chevron; divider; 'Account & Security' row with shield icon + chevron)"
+    },
+    {
+      "type": "card",
+      "variant": "settings list group (preferences)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px per row",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (Budget Settings w/ 'Active' green value, Categories, Currency w/ 'IDR - Rp' value, Notifications; each with left icon and right chevron)"
+    },
+    {
+      "type": "card",
+      "variant": "settings list group (data & support)",
+      "properties": {
+        "radius_px": 12,
+        "padding": "approx 24px 32px per row",
+        "border": "1px solid #E5E7EB",
+        "shadow": "very subtle drop shadow",
+        "icon_present": true
+      },
+      "state_visible": "default (Export Expenses, Help & Support, plus a partially visible third row with a red icon, cut off by bottom nav)"
+    },
+    {
+      "type": "other",
+      "variant": "bottom navigation bar",
+      "properties": {
+        "radius_px": null,
+        "padding": "approx 16px vertical",
+        "border": "top divider/shadow separating from content",
+        "shadow": "subtle elevation above content",
+        "icon_present": true
+      },
+      "state_visible": "active ('Settings' tab highlighted with blue filled rounded-square pill and white icon+label; Home and Expenses inactive in gray; Scan is a raised circular blue camera button in the center)"
+    }
+  ],
+  "content_patterns": "Settings organized into uppercase, letter-spaced section headers: ACCOUNT, PREFERENCES, DATA & SUPPORT. List rows follow consistent pattern: left icon + label + optional right-side value text ('Active', 'IDR - Rp') + chevron indicating navigation. Title-case labels. Row values communicate current state without opening sub-pages. Nav labels are single words: Home, Expenses, Scan, Settings.",
+  "notable_interactions": "Chevrons on every row imply drill-down navigation to sub-pages. 'Active' and currency value texts imply in-row state display. Bottom nav shows active state via filled blue pill; central raised Scan button implies primary camera/receipt-scan action accessible from any tab. A destructive-looking red-icon row is partially cut off at the bottom, suggesting scrollable content behind the fixed bottom nav."
+}
