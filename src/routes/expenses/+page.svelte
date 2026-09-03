@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { formatRp } from '$lib/utils/currency';
+	import { bodyScrollLock } from '$lib/utils/scroll-lock';
 	import type { Transaction } from '$lib/types/transaction';
 
 	// Structural migration of initial-assets/static-templates/main_expenses_page.html
@@ -114,14 +115,6 @@
 	function onKeydown(event: KeyboardEvent): void {
 		if (event.key === 'Escape' && filterOpen) filterOpen = false;
 	}
-
-	// Body scroll lock while the modal is open (matches Bootstrap modal default).
-	$effect(() => {
-		document.body.style.overflow = filterOpen ? 'hidden' : '';
-		return () => {
-			document.body.style.overflow = '';
-		};
-	});
 </script>
 
 <svelte:head>
@@ -313,6 +306,7 @@
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		class="modal fade ds-modal show"
+		use:bodyScrollLock
 		tabindex="-1"
 		role="dialog"
 		aria-modal="true"
