@@ -8,11 +8,15 @@
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
+		// checkJs is disabled: the wrangler-generated worker-configuration.d.ts
+		// imports the built worker bundle (.svelte-kit/cloudflare/_worker.js),
+		// which drags compiled build output into the type program after every
+		// `vite build`. The project has no hand-written JS sources (all TS/Svelte),
+		// so checking generated JS adds nothing but noise.
+		"checkJs": false,
 		"sourceMap": true,
 		"strict": true,
 		"moduleResolution": "bundler",
-		"types": [
-			"./worker-configuration.d.ts"
-		]
+		"types": ["./worker-configuration.d.ts"]
 	}
 }

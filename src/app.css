@@ -1,0 +1,9 @@
+/* Global stylesheet for ExpenseTracker.
+   Bootstrap 5.3.3 + Bootstrap Icons + Google Fonts are loaded via CDN in
+   src/app.html (dependency migration is deferred to a later phase).
+
+   NOTE: design-system.css sets --bs-body-font-size: 0.9rem on <body>,
+   so Bootstrap fs-* / spacing utilities are scaled relative to a 14px base.
+   Do not normalize this to 1rem — visual fidelity depends on it. */
+
+@import '$lib/styles/design-system.css';

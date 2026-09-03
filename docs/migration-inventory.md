@@ -583,3 +583,80 @@ Decisions on record before Phase 2 begins.
   `innerHTML` templates — `.amount.over` and budget-row markup are created
   dynamically and are not visible to static analysis.
 * Only then remove classes, one PR per logical group, with visual QA after each.
+
+---
+
+## 13. Risk Mitigations (agreed approach per risk)
+
+Decisions on record before Phase 2 begins.
+
+### R1 — Non-default 0.9rem base font
+
+* Keep `body { --bs-body-font-size: 0.9rem }` **verbatim** in the global
+  stylesheet during migration — do not "normalize" to 1rem.
+* Rule for the CSS cleanup pass: an inline style may only be replaced by a
+  Bootstrap utility if the computed value matches the original (verify in
+  devtools during visual QA). When in doubt, keep or create a `ds-*` class.
+* Add a one-line comment in the root layout next to the stylesheet import
+  warning about the scaled base font.
+
+### R2 — Two expenses pages → one route
+
+* Verified by diff: the only differences are the Shopping legend/amount
+  over-budget styling (`ds-money-error` + `amount over` classes) and the
+  `<title>`. Everything else is identical.
+* Encode those differences as data (`overBudget: boolean` driving the progress
+  variant, error classes, and page title). The migrated route must render
+  identically in both states — check with screenshot comparison.
+
+### R3 — Hardcoded donut chart
+
+* `DonutChart.svelte` takes `segments: { color: string; pct: number }[]` and
+  builds the identical `conic-gradient` string.
+* Keep the exact hex values (`#EF4444`, `#6B7280`, `var(--ds-warning)`,
+  `var(--ds-brand-primary)`) as defaults so the first render is pixel-identical.
+* Confirm equivalence via screenshot diff before any data-driven change.
+
+### R4 — Modal focus / ESC / scroll-lock fidelity
+
+* Modal contract (decided): the custom `Modal.svelte` implements
+  1. Esc key closes,
+  2. backdrop click closes,
+  3. `overflow: hidden` on `<body>` while open,
+  4. focus moves into the modal on open and is restored to the trigger on close.
+* Full tab-cycling focus **trapping** is deferred: add it only if visual QA
+  shows it matters, either hand-rolled or via a small documented dependency
+  (e.g., `focus-trap`). Do not silently drop it — document the gap.
+
+### R5 — `show.bs.modal` + `relatedTarget` pattern
+
+* Does not migrate; it dissolves. The opener sets state before toggling:
+  `editingBudget = row; showModal = true` (add mode: `editingBudget = null`).
+* Do not attempt to emulate the event/`relatedTarget` pattern in Svelte.
+* Note this in the Modal component usage docs so the pattern isn't re-invented.
+
+### R6 — No backend / no API contract
+
+* Create `src/lib/types/` now with interfaces inferred from markup
+  (`Transaction`, `CategoryBudget`, `FilterState`) — see §10.
+* Put hardcoded demo data in `+page.ts` load functions, not inline `$state`,
+  so that when a real backend arrives only the load functions change and
+  components are untouched.
+* No mock API, no invented endpoints.
+
+### R7 — `parseRp` digit-stripping
+
+* Preserve exactly as-is in `src/lib/utils/currency.ts`:
+  `Number(s.replace(/[^\d]/g, '')) || 0`, with a comment that decimals are
+  intentionally unsupported (existing behavior).
+* Add unit tests documenting current behavior (e.g., `'Rp 1.500'` → 1500,
+  `'abc'` → 0). Do not "improve" the parser during migration.
+
+### R8 — Unused CSS classes
+
+* Do not delete anything during migration phases.
+* Before the CSS-cleanup pass, verify usage with a runtime coverage check
+  (load every page, inspect applied rules) **and** grep the JS-generated
+  `innerHTML` templates — `.amount.over` and budget-row markup are created
+  dynamically and are not visible to static analysis.
+* Only then remove classes, one PR per logical group, with visual QA after each.
