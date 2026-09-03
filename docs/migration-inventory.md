@@ -422,8 +422,7 @@ src/
     ├── /register
     ├── /onboarding/tracking-preference
     ├── /onboarding/budget-reset-date
-    ├── /onboarding/budget-setup
-    ├── /                              or /home
+    ├── /home
     ├── /expenses                      (one route; over-budget = data-driven state, not a 2nd page)
     ├── /expenses/add
     ├── /scan                          (camera screen)
