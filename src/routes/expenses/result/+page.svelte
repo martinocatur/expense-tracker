@@ -1,4 +1,6 @@
 <script lang="ts">
+	import TopBar from '$lib/components/layout/TopBar.svelte';
+
 	// Structural migration of initial-assets/static-templates/expense_result.html.
 	// The original page has no custom JavaScript (Bootstrap bundle only, unused here);
 	// the Edit/Delete buttons are decorative placeholders.
@@ -10,20 +12,18 @@
 </svelte:head>
 
 <main class="ds-shell">
-	<header class="ds-topbar">
-		<a href="/expenses" class="ds-icon-btn" aria-label="Back"
-			><i class="bi bi-arrow-left fs-4"></i></a
-		>
-		<a href="/home" class="ds-topbar-brand">ExpenseTracker</a>
-		<div class="d-flex align-items-center gap-3">
-			<a href="/settings" class="ds-icon-btn" aria-label="Notifications"
-				><i class="bi bi-bell fs-5" style="color:var(--ds-brand-primary);"></i></a
-			>
-			<a href="/settings/profile" class="ds-avatar ds-avatar-initials" aria-label="Profile"
-				><i class="bi bi-person fs-5"></i></a
-			>
-		</div>
-	</header>
+	<TopBar backHref="/expenses" brandHref="/home">
+		{#snippet trailing()}
+			<div class="d-flex align-items-center gap-3">
+				<a href="/settings" class="ds-icon-btn" aria-label="Notifications"
+					><i class="bi bi-bell fs-5" style="color:var(--ds-brand-primary);"></i></a
+				>
+				<a href="/settings/profile" class="ds-avatar ds-avatar-initials" aria-label="Profile"
+					><i class="bi bi-person fs-5"></i></a
+				>
+			</div>
+		{/snippet}
+	</TopBar>
 
 	<div class="ds-content" style="padding-bottom: 7rem;">
 		<div class="text-center mt-3">

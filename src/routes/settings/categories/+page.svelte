@@ -1,5 +1,9 @@
 <script lang="ts">
 	import type { Category } from '$lib/types/category';
+	import TopBar from '$lib/components/layout/TopBar.svelte';
+	import FooterCta from '$lib/components/layout/FooterCta.svelte';
+	import IconInput from '$lib/components/ui/IconInput.svelte';
+	import IconAvatar from '$lib/components/ui/IconAvatar.svelte';
 
 	// Structural migration of initial-assets/static-templates/categories_management.html.
 	// The original page has no custom JavaScript (Bootstrap bundle only, unused here);
@@ -26,50 +30,41 @@
 </svelte:head>
 
 <main class="ds-shell">
-	<header class="ds-topbar">
-		<a href="/settings" class="ds-icon-btn" aria-label="Back"
-			><i class="bi bi-arrow-left fs-4"></i></a
-		>
-		<span class="ds-topbar-title ds-topbar-title-accent fs-4">Categories</span>
-		<span style="width:28px;"></span>
-	</header>
+	<TopBar backHref="/settings" title="Categories" titleAccent />
 
 	<div class="ds-content" style="padding-bottom: 7.5rem;">
 		<!-- Search -->
-		<div class="ds-input-icon mb-4">
-			<i class="bi bi-search"></i>
+		<IconInput icon="bi-search" class="mb-4">
 			<input
 				type="search"
 				class="form-control ds-input"
 				placeholder="Search categories..."
 				aria-label="Search categories"
 			/>
-		</div>
+		</IconInput>
 
 		<!-- Category list -->
 		<section class="ds-card">
 			<div class="ds-row">
-				<span class="ds-icon-avatar ds-tint-lavender"><i class="bi bi-shapes"></i></span>
+				<IconAvatar icon="bi-shapes" tint="ds-tint-lavender" />
 				<span class="ds-row-title fs-4">General</span>
 				<span class="ds-badge-system">System</span>
 				<i class="bi bi-lock ms-auto fs-5" style="color:#9CA3AF;"></i>
 			</div>
 			{#each categories as category (category.name)}
 				<div class="ds-row">
-					<span class="ds-icon-avatar {category.tint}"><i class="bi {category.icon}"></i></span>
+					<IconAvatar icon={category.icon} tint={category.tint} />
 					<span class="ds-row-title fs-4">{category.name}</span>
 				</div>
 			{/each}
 		</section>
 	</div>
 
-	<div class="ds-footer-cta" style="padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));">
-		<button
-			type="button"
-			class="btn ds-btn-primary w-100 shadow"
-			style="box-shadow: var(--ds-shadow-raised) !important;"
-		>
-			<i class="bi bi-plus-lg me-2"></i> Add Category
-		</button>
-	</div>
+	<FooterCta
+		style="padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));"
+		buttonClass="shadow"
+		buttonStyle="box-shadow: var(--ds-shadow-raised) !important;"
+	>
+		<i class="bi bi-plus-lg me-2"></i> Add Category
+	</FooterCta>
 </main>

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { formatRp, parseRp } from '$lib/utils/currency';
-	import { bodyScrollLock } from '$lib/utils/scroll-lock';
+	import TopBar from '$lib/components/layout/TopBar.svelte';
+	import FooterCta from '$lib/components/layout/FooterCta.svelte';
+	import Modal from '$lib/components/ui/Modal.svelte';
+	import IconInput from '$lib/components/ui/IconInput.svelte';
+	import IconAvatar from '$lib/components/ui/IconAvatar.svelte';
 
 	// Structural migration of initial-assets/static-templates/budget_settings.html
 	// including the category-budget CRUD from its inline script.
@@ -133,26 +137,14 @@
 		unallocated += budget.amount;
 		budgets = budgets.filter((b) => b.id !== budget.id);
 	}
-
-	function onKeydown(event: KeyboardEvent): void {
-		if (event.key === 'Escape' && modalOpen) modalOpen = false;
-	}
 </script>
 
 <svelte:head>
 	<title>Budget Settings · ExpenseTracker</title>
 </svelte:head>
 
-<svelte:window onkeydown={onKeydown} />
-
 <main class="ds-shell">
-	<header class="ds-topbar">
-		<a href="/settings" class="ds-icon-btn" aria-label="Back"
-			><i class="bi bi-arrow-left fs-4"></i></a
-		>
-		<span class="ds-topbar-title fs-4">Budget Settings</span>
-		<span style="width:28px;"></span>
-	</header>
+	<TopBar backHref="/settings" title="Budget Settings" />
 
 	<div class="ds-content" style="padding-bottom: 7.5rem;">
 		<!-- Enable budgeting hero -->
@@ -179,15 +171,14 @@
 			<hr style="border-color:rgba(17,24,39,0.1);opacity:1;" />
 
 			<label for="resetDate" class="ds-label" style="color:#374151;">Budget Reset Date</label>
-			<div class="ds-input-icon ds-input-icon-right">
-				<i class="bi bi-calendar2-week"></i>
+			<IconInput icon="bi-calendar2-week" right>
 				<input
 					type="text"
 					class="form-control ds-input"
 					id="resetDate"
 					value="15th of every month"
 				/>
-			</div>
+			</IconInput>
 		</section>
 
 		<!-- Total monthly budget -->
@@ -213,7 +204,7 @@
 		<div class="d-grid gap-3">
 			{#each budgets as budget (budget.id)}
 				<div class="ds-card ds-row py-3" style="border-color:var(--ds-border-input);">
-					<span class="ds-icon-avatar {budget.tint}"><i class="bi {budget.icon}"></i></span>
+					<IconAvatar icon={budget.icon} tint={budget.tint} />
 					<div>
 						<div class="fw-bold fs-5 text-body">{budget.category}</div>
 						<div class="ds-row-value">{formatRp(budget.amount)}</div>
@@ -249,92 +240,59 @@
 		</div>
 	</div>
 
-	<div class="ds-footer-cta" style="background:transparent;">
-		<button type="button" class="btn ds-btn-primary w-100">Save Changes</button>
-	</div>
+	<FooterCta style="background:transparent;">Save Changes</FooterCta>
 </main>
 
-{#if modalOpen}
-	<!-- Add / Edit Category Budget modal (Svelte state; replaces Bootstrap JS modal) -->
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
-		class="modal fade ds-modal show"
-		use:bodyScrollLock
-		tabindex="-1"
-		role="dialog"
-		aria-modal="true"
-		aria-labelledby="categoryBudgetModalTitle"
-		style="display:block;"
-		onclick={(e) => e.target === e.currentTarget && (modalOpen = false)}
-	>
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header border-0 pb-2">
-					<h5 class="modal-title fw-bold" id="categoryBudgetModalTitle">
-						{mode === 'edit' ? 'Edit Category Budget' : 'Add Category Budget'}
-					</h5>
-					<button
-						type="button"
-						class="btn-close"
-						aria-label="Close"
-						onclick={() => (modalOpen = false)}
-					></button>
-				</div>
-				<form novalidate onsubmit={submitBudget}>
-					<div class="modal-body">
-						<div class="mb-4">
-							<label for="modalCategory" class="ds-label">Category</label>
-							<div class="ds-input-icon ds-input-icon-right">
-								<i class="bi bi-shapes"></i>
-								<select
-									class="form-select ds-input"
-									class:is-invalid={categoryInvalid}
-									id="modalCategory"
-									required
-									disabled={mode === 'edit'}
-									bind:value={draftCategory}
-									onchange={() => (categoryInvalid = false)}
-								>
-									<option value="" selected disabled>Select...</option>
-									{#each CATEGORY_OPTIONS as option (option)}
-										<option>{option}</option>
-									{/each}
-								</select>
-							</div>
-						</div>
-
-						<div class="mb-2">
-							<label for="modalAmount" class="ds-label">Amount (Rp)</label>
-							<input
-								type="text"
-								class="form-control ds-input"
-								class:is-invalid={amountInvalid}
-								id="modalAmount"
-								inputmode="numeric"
-								required
-								bind:value={draftAmount}
-								oninput={onAmountInput}
-							/>
-						</div>
-
-						<p class="ds-caption mb-0">
-							Unallocated Budget: <span class="ds-money ds-money-success"
-								>{formatRp(unallocated)}</span
-							>
-						</p>
-					</div>
-					<div class="modal-footer border-0 pt-0">
-						<button
-							type="button"
-							class="btn ds-btn-neutral-tint"
-							onclick={() => (modalOpen = false)}>Cancel</button
-						>
-						<button type="submit" class="btn ds-btn-primary">Save</button>
-					</div>
-				</form>
+<!-- Add / Edit Category Budget modal (Svelte state; replaces Bootstrap JS modal) -->
+<Modal
+	bind:open={modalOpen}
+	title={mode === 'edit' ? 'Edit Category Budget' : 'Add Category Budget'}
+>
+	<form novalidate onsubmit={submitBudget}>
+		<div class="modal-body">
+			<div class="mb-4">
+				<label for="modalCategory" class="ds-label">Category</label>
+				<IconInput icon="bi-shapes" right>
+					<select
+						class="form-select ds-input"
+						class:is-invalid={categoryInvalid}
+						id="modalCategory"
+						required
+						disabled={mode === 'edit'}
+						bind:value={draftCategory}
+						onchange={() => (categoryInvalid = false)}
+					>
+						<option value="" selected disabled>Select...</option>
+						{#each CATEGORY_OPTIONS as option (option)}
+							<option>{option}</option>
+						{/each}
+					</select>
+				</IconInput>
 			</div>
+
+			<div class="mb-2">
+				<label for="modalAmount" class="ds-label">Amount (Rp)</label>
+				<input
+					type="text"
+					class="form-control ds-input"
+					class:is-invalid={amountInvalid}
+					id="modalAmount"
+					inputmode="numeric"
+					required
+					bind:value={draftAmount}
+					oninput={onAmountInput}
+				/>
+			</div>
+
+			<p class="ds-caption mb-0">
+				Unallocated Budget: <span class="ds-money ds-money-success">{formatRp(unallocated)}</span>
+			</p>
 		</div>
-	</div>
-	<div class="modal-backdrop fade show"></div>
-{/if}
+		<div class="modal-footer border-0 pt-0">
+			<button type="button" class="btn ds-btn-neutral-tint" onclick={() => (modalOpen = false)}
+				>Cancel</button
+			>
+			<button type="submit" class="btn ds-btn-primary">Save</button>
+		</div>
+	</form>
+</Modal>

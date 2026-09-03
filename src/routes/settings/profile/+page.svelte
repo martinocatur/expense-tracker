@@ -1,4 +1,7 @@
 <script lang="ts">
+	import TopBar from '$lib/components/layout/TopBar.svelte';
+	import IconInput from '$lib/components/ui/IconInput.svelte';
+
 	// Structural migration of initial-assets/static-templates/profile_settings.html.
 	// The original page has no custom JavaScript; the form uses native submit
 	// behavior (no action → page reload), which is preserved as-is.
@@ -10,13 +13,7 @@
 </svelte:head>
 
 <main class="ds-shell">
-	<header class="ds-topbar">
-		<a href="/settings" class="ds-icon-btn" aria-label="Back"
-			><i class="bi bi-arrow-left fs-4"></i></a
-		>
-		<span class="ds-topbar-title fs-4">Profile Settings</span>
-		<span style="width:28px;"></span>
-	</header>
+	<TopBar backHref="/settings" title="Profile Settings" />
 
 	<div class="ds-content">
 		<!-- Avatar -->
@@ -70,14 +67,13 @@
 
 				<div class="mt-4 mb-2">
 					<label for="currency" class="ds-label">Default Currency</label>
-					<div class="ds-input-icon ds-input-icon-right">
-						<i class="bi bi-cash-stack"></i>
+					<IconInput icon="bi-cash-stack" right>
 						<select class="form-select ds-input" id="currency">
 							<option selected>IDR - Indonesian Rupiah (Rp)</option>
 							<option>USD - US Dollar ($)</option>
 							<option>EUR - Euro (€)</option>
 						</select>
-					</div>
+					</IconInput>
 					<p class="ds-row-value mt-2 mb-0">
 						This currency will be used for all reports and summaries.
 					</p>

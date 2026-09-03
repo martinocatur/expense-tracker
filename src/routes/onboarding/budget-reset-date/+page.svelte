@@ -1,4 +1,6 @@
 <script lang="ts">
+	import TopBar from '$lib/components/layout/TopBar.svelte';
+
 	// Structural migration of initial-assets/static-templates/budget_reset_date.html.
 	// The original page has no custom JavaScript; the 'selected' state on the
 	// "Custom" tile is hardcoded in the markup (no toggle behavior existed).
@@ -10,13 +12,11 @@
 </svelte:head>
 
 <main class="ds-shell">
-	<header class="ds-topbar">
-		<a href="/onboarding/tracking-preference" class="ds-icon-btn" aria-label="Back"
-			><i class="bi bi-arrow-left fs-4"></i></a
-		>
-		<span class="ds-topbar-title-accent fw-bold fs-5">Budget Setup</span>
-		<span style="width:28px;"></span>
-	</header>
+	<TopBar backHref="/onboarding/tracking-preference">
+		{#snippet center()}
+			<span class="ds-topbar-title-accent fw-bold fs-5">Budget Setup</span>
+		{/snippet}
+	</TopBar>
 
 	<div class="ds-content">
 		<div

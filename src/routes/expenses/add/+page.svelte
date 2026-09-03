@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { formatRp, parseRp } from '$lib/utils/currency';
-	import { bodyScrollLock } from '$lib/utils/scroll-lock';
+	import TopBar from '$lib/components/layout/TopBar.svelte';
+	import FooterCta from '$lib/components/layout/FooterCta.svelte';
+	import Modal from '$lib/components/ui/Modal.svelte';
+	import IconInput from '$lib/components/ui/IconInput.svelte';
 
 	// Structural migration of initial-assets/static-templates/add_expense_manually.html
 	// including the Add Item behavior from its inline script.
@@ -82,24 +85,14 @@
 	function removeItem(item: ExpenseItem): void {
 		items = items.filter((i) => i.id !== item.id);
 	}
-
-	function onKeydown(event: KeyboardEvent): void {
-		if (event.key === 'Escape' && modalOpen) modalOpen = false;
-	}
 </script>
 
 <svelte:head>
 	<title>Add Expense · ExpenseTracker</title>
 </svelte:head>
 
-<svelte:window onkeydown={onKeydown} />
-
 <main class="ds-shell">
-	<header class="ds-topbar">
-		<a href="/home" class="ds-icon-btn" aria-label="Back"><i class="bi bi-arrow-left fs-4"></i></a>
-		<a href="/home" class="ds-topbar-brand">ExpenseTracker</a>
-		<span style="width:28px;"></span>
-	</header>
+	<TopBar backHref="/home" brandHref="/home" />
 
 	<div class="ds-content" style="padding-bottom: 7.5rem;">
 		<h1 class="fs-3 fw-semibold mb-1">Add Expense</h1>
@@ -129,16 +122,14 @@
 
 			<section class="ds-card p-3 mb-3">
 				<label for="date" class="ds-label">Date</label>
-				<div class="ds-input-icon ds-input-icon-right">
-					<i class="bi bi-calendar-week"></i>
+				<IconInput icon="bi-calendar-week" right>
 					<input type="text" class="form-control ds-input" id="date" value="01/09/2026" />
-				</div>
+				</IconInput>
 			</section>
 
 			<section class="ds-card p-3 mb-3">
 				<label for="category" class="ds-label">Category</label>
-				<div class="ds-input-icon ds-input-icon-right">
-					<i class="bi bi-shapes"></i>
+				<IconInput icon="bi-shapes" right>
 					<select class="form-select ds-input" id="category">
 						<option selected>Select...</option>
 						<option>Food &amp; Beverage</option>
@@ -146,7 +137,7 @@
 						<option>Shopping</option>
 						<option>Education</option>
 					</select>
-				</div>
+				</IconInput>
 			</section>
 
 			<section class="ds-card p-3 mb-3">
@@ -204,93 +195,62 @@
 		</form>
 	</div>
 
-	<div class="ds-footer-cta">
-		<button type="button" class="btn ds-btn-primary w-100">
-			<i class="bi bi-save me-2"></i> Save Expense
-		</button>
-	</div>
+	<FooterCta>
+		<i class="bi bi-save me-2"></i> Save Expense
+	</FooterCta>
 </main>
 
-{#if modalOpen}
-	<!-- Add Item modal (Svelte state; replaces Bootstrap JS modal) -->
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
-		class="modal fade ds-modal show"
-		use:bodyScrollLock
-		tabindex="-1"
-		role="dialog"
-		aria-modal="true"
-		aria-labelledby="addItemModalTitle"
-		style="display:block;"
-		onclick={(e) => e.target === e.currentTarget && (modalOpen = false)}
-	>
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header border-0 pb-2">
-					<h5 class="modal-title fw-bold" id="addItemModalTitle">Add Item</h5>
-					<button
-						type="button"
-						class="btn-close"
-						aria-label="Close"
-						onclick={() => (modalOpen = false)}
-					></button>
-				</div>
-				<form novalidate onsubmit={addItem}>
-					<div class="modal-body">
-						<div class="mb-4">
-							<label for="modalItemName" class="ds-label">Name</label>
-							<input
-								type="text"
-								class="form-control ds-input"
-								class:is-invalid={nameInvalid}
-								id="modalItemName"
-								placeholder="Item name"
-								required
-								bind:value={draftName}
-								oninput={() => (nameInvalid = false)}
-							/>
-						</div>
+<!-- Add Item modal (Svelte state; replaces Bootstrap JS modal) -->
+<Modal bind:open={modalOpen} title="Add Item">
+	<form novalidate onsubmit={addItem}>
+		<div class="modal-body">
+			<div class="mb-4">
+				<label for="modalItemName" class="ds-label">Name</label>
+				<input
+					type="text"
+					class="form-control ds-input"
+					class:is-invalid={nameInvalid}
+					id="modalItemName"
+					placeholder="Item name"
+					required
+					bind:value={draftName}
+					oninput={() => (nameInvalid = false)}
+				/>
+			</div>
 
-						<div class="row g-3">
-							<div class="col-4">
-								<label for="modalItemQty" class="ds-label">Qty</label>
-								<input
-									type="number"
-									class="form-control ds-input"
-									class:is-invalid={qtyInvalid}
-									id="modalItemQty"
-									min="1"
-									required
-									bind:value={draftQty}
-								/>
-							</div>
-							<div class="col-8">
-								<label for="modalItemPrice" class="ds-label">Price (Rp)</label>
-								<input
-									type="text"
-									class="form-control ds-input"
-									class:is-invalid={priceInvalid}
-									id="modalItemPrice"
-									inputmode="numeric"
-									required
-									bind:value={draftPrice}
-									oninput={onPriceInput}
-								/>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer border-0 pt-0">
-						<button
-							type="button"
-							class="btn ds-btn-neutral-tint"
-							onclick={() => (modalOpen = false)}>Cancel</button
-						>
-						<button type="submit" class="btn ds-btn-primary">Add Item</button>
-					</div>
-				</form>
+			<div class="row g-3">
+				<div class="col-4">
+					<label for="modalItemQty" class="ds-label">Qty</label>
+					<input
+						type="number"
+						class="form-control ds-input"
+						class:is-invalid={qtyInvalid}
+						id="modalItemQty"
+						min="1"
+						required
+						bind:value={draftQty}
+					/>
+				</div>
+				<div class="col-8">
+					<label for="modalItemPrice" class="ds-label">Price (Rp)</label>
+					<input
+						type="text"
+						class="form-control ds-input"
+						class:is-invalid={priceInvalid}
+						id="modalItemPrice"
+						inputmode="numeric"
+						required
+						bind:value={draftPrice}
+						oninput={onPriceInput}
+					/>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="modal-backdrop fade show"></div>
-{/if}
+		<div class="modal-footer border-0 pt-0">
+			<button type="button" class="btn ds-btn-neutral-tint" onclick={() => (modalOpen = false)}
+				>Cancel</button
+			>
+			<button type="submit" class="btn ds-btn-primary">Add Item</button>
+		</div>
+	</form>
+</Modal>

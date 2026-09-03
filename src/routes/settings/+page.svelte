@@ -1,4 +1,7 @@
 <script lang="ts">
+	import TopBar from '$lib/components/layout/TopBar.svelte';
+	import BottomNav from '$lib/components/layout/BottomNav.svelte';
+
 	// Structural migration of initial-assets/static-templates/settings.html.
 	// The original page has no custom JavaScript (Bootstrap bundle only, unused here).
 	// Inline styles are intentionally preserved (CSS cleanup is a later phase).
@@ -9,16 +12,19 @@
 </svelte:head>
 
 <main class="ds-shell">
-	<header class="ds-topbar">
-		<a href="/settings/profile" class="ds-icon-btn" aria-label="Profile"
-			><i class="bi bi-person-circle fs-4" style="color:var(--ds-brand-primary);"></i></a
-		>
-		<span class="ds-topbar-title ds-topbar-title-accent fs-4">Settings</span>
-		<!-- svelte-ignore a11y_invalid_attribute -->
-		<a href="#" class="ds-icon-btn" aria-label="Notifications"
-			><i class="bi bi-bell fs-4" style="color:var(--ds-brand-primary);"></i></a
-		>
-	</header>
+	<TopBar title="Settings" titleAccent>
+		{#snippet leading()}
+			<a href="/settings/profile" class="ds-icon-btn" aria-label="Profile"
+				><i class="bi bi-person-circle fs-4" style="color:var(--ds-brand-primary);"></i></a
+			>
+		{/snippet}
+		{#snippet trailing()}
+			<!-- svelte-ignore a11y_invalid_attribute -->
+			<a href="#" class="ds-icon-btn" aria-label="Notifications"
+				><i class="bi bi-bell fs-4" style="color:var(--ds-brand-primary);"></i></a
+			>
+		{/snippet}
+	</TopBar>
 
 	<div class="ds-content">
 		<!-- Account -->
@@ -94,26 +100,5 @@
 	</div>
 
 	<!-- Bottom navigation with raised Scan action -->
-	<nav class="ds-bottomnav">
-		<div class="d-flex justify-content-around align-items-end pb-2">
-			<a href="/home" class="ds-nav-item">
-				<i class="bi bi-house-door"></i>
-				<span>Home</span>
-			</a>
-			<a href="/expenses" class="ds-nav-item">
-				<i class="bi bi-wallet2"></i>
-				<span>Expenses</span>
-			</a>
-			<a href="/scan" class="ds-nav-item" style="margin-top:-2.6rem;">
-				<span class="ds-nav-scan"><i class="bi bi-camera"></i></span>
-				<span>Scan</span>
-			</a>
-			<a href="/settings" class="ds-nav-item">
-				<span class="ds-nav-pill d-flex flex-column align-items-center px-3 py-2">
-					<i class="bi bi-gear-fill"></i>
-					<span>Settings</span>
-				</span>
-			</a>
-		</div>
-	</nav>
+	<BottomNav active="settings" raisedScan />
 </main>
